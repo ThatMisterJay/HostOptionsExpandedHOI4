@@ -1,0 +1,20 @@
+add_namespace = Host_Options_Expanded
+
+
+country_event = {
+	id = Host_Options_Expanded.1
+	title = Host_Options_Expanded.1.t
+	desc = Host_Options_Expanded.1.d
+
+	is_triggered_only = yes
+
+
+	option = {
+		name = Host_Options_Expanded.1.a
+		for_each_scope_loop = {
+		    array = global.playerbase
+
+			log = "[?THIS.GetName]"
+		}
+	}
+}

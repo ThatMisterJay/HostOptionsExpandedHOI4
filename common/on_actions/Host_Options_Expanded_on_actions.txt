@@ -1,0 +1,17 @@
+on_actions = {
+    on_startup = {
+		effect = {
+			set_global_flag = creating_playerbase
+
+            every_country = {
+                limit = { is_ai = no }
+                add_to_array = { global.playerbase = THIS }
+            }
+
+            GER = { save_global_event_target_as = game_host }
+
+            FRA = { add_to_array = { global.playerbase = THIS } }
+            ENG = { add_to_array = { global.playerbase = THIS } }
+		}
+	}
+}
