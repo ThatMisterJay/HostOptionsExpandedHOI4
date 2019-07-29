@@ -36,12 +36,35 @@ scripted_gui = {
 			close_button_click = {
 				set_variable = { show_host_options = 0 }
 			}
+
+			player_flag_click = {
+				capital_scope = {
+					ROOT = {
+						goto_state = PREV
+					}
+				}
+			}
+
+			host_flag_click = {
+				event_target:game_host = {
+					capital_scope = {
+						ROOT = {
+							goto_state = PREV
+						}
+					}
+				}
+			}
 		}
 
 		dynamic_lists = {
 			player_list_gridbox = {
 				array = global.playerbase
 				entry_container = player_list_entry
+				change_scope = yes
+			}
+			fascism_player_list_gridbox = {
+				array = global.fascist_countries_array
+				entry_container = fascism_player_list_entry
 				change_scope = yes
 			}
 		}

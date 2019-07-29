@@ -5,13 +5,25 @@ on_actions = {
 
             every_country = {
                 limit = { is_ai = no }
-                add_to_array = { global.playerbase = THIS }
+                add_to_array = { global.playerbase = THIS.id }
             }
 
-            GER = { save_global_event_target_as = game_host }
+            FRA = { save_global_event_target_as = game_host }
 
-            FRA = { add_to_array = { global.playerbase = THIS } }
-            ENG = { add_to_array = { global.playerbase = THIS } }
+            FRA = { add_to_array = { global.playerbase = THIS.id } }
+            ENG = { add_to_array = { global.playerbase = THIS.id } }
+            HOL = { add_to_array = { global.playerbase = THIS.id } }
+            BEL = { add_to_array = { global.playerbase = THIS.id } }
+            LUX = { add_to_array = { global.playerbase = THIS.id } }
+            SWI = { add_to_array = { global.playerbase = THIS.id } }
+            POL = { add_to_array = { global.playerbase = THIS.id } }
+            YUG = { add_to_array = { global.playerbase = THIS.id } }
+            ITA = { add_to_array = { global.playerbase = THIS.id } }
+            BUL = { add_to_array = { global.playerbase = THIS.id } }
+            ROM = { add_to_array = { global.playerbase = THIS.id } }
+
+			#GER = { add_to_array = { global.fascist_countries_array = THIS.id } }
+			#ITA = { add_to_array = { global.fascist_countries_array = THIS.id } }
 		}
 	}
 }

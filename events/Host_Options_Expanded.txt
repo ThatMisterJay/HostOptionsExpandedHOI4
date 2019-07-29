@@ -18,3 +18,17 @@ country_event = {
 		}
 	}
 }
+
+country_event = {
+	id = Host_Options_Expanded.2
+	title = Host_Options_Expanded.2.t
+	desc = Host_Options_Expanded.2.d
+
+	is_triggered_only = yes
+
+
+	option = {
+		name = Host_Options_Expanded.2.a
+		sort_array_by_factions = yes
+	}
+}

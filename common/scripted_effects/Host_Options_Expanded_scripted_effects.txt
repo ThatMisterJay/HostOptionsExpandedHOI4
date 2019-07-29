@@ -1,0 +1,50 @@
+# Host Options Expanded scripted effects
+
+sort_array_by_factions = {
+	clear_array = global.fascist_countries_array
+	for_loop_effect = {
+		start = 0
+		end = global.playerbase^num
+		value = v
+		set_variable = { array_country = var:playerbase^v }
+
+		var:playerbase^v = {
+			if = {
+				limit = { OR = { tag = CHI tag = PRC } }
+
+				#Add chinese country to array
+				add_to_array = { chinese_countries_array = PREV.id }
+			}
+			#If government is democratic
+			else_if = {
+				limit = { has_government = democratic }
+
+				#Add democratic country to array
+				add_to_array = { democratic_countries_array = PREV.id }
+			}
+			# If government is gommie
+			else_if = {
+				limit = { has_government = communism }
+
+				#Add gommie country to array
+				add_to_array = { communist_countries_array = PREV.id }
+			}
+			# If government is nezi
+			else_if = {
+				limit = { has_government = fascism }
+
+				#Add fascist country to array
+				add_to_array = { global.fascist_countries_array = PREV.id }
+			}
+			# If government is neutral
+			else = {
+				limit = { has_government = neutrality }
+
+				#Add neutral country to array
+				add_to_array = { neutral_countries_array = PREV.id }
+			}
+			log = "[?PREV.GetName]"
+		}
+		clear_variable = array_country
+	}
+}

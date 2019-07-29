@@ -31,7 +31,7 @@ guiTypes = {
 
 		fade_time = 300
 		fade_type = linear
-		moveable = yes
+		moveable = no
 
 		background = {
 			name = "Background"
@@ -54,7 +54,7 @@ guiTypes = {
 		}
 
 		instantTextboxType = {
-			name = "host_name"
+			name = "host_country"
 			position = {x=-50 y=-505}
 			font = "hoi_20b"
 			text = "Host Country"
@@ -64,12 +64,18 @@ guiTypes = {
 			orientation = center
 		}
 
+		instantTextboxType = {
+			name = "host_name"
+			position = { x = 535 y = 190 }
+			font = "hoi_18mbs"
+			text = "[game_host.GetNameDefCap]"
+		}
+
 		buttonType = {
 			name = "host_flag"
 			position = { x = -45 y = -480 }
 			quadTextureSprite ="GFX_shield_medium"
 			orientation = "CENTER"
-			alwaystransparent = yes
 		}
 
 		iconType = {
@@ -79,6 +85,7 @@ guiTypes = {
 			orientation = "CENTER"
 			alwaystransparent = yes
 		}
+
 		buttonType = {
 			name = "close_button"
 			position = { x = -45 y = 13 }
@@ -93,24 +100,48 @@ guiTypes = {
 
 
 
+		instantTextboxType = {
+			name = "player_countries"
+			position = {x=-66 y=-340}
+			font = "hoi_20b"
+			text = "Player Countries"
+			orientation = center
+		}
+
+
+
 		containerWindowType = {
 			name = "player_list"
-			position = { x = 8 y = 300 }
+			position = { x = 75 y = -250 }
 			size = { width = 1000 height = 223 }
 			margin = { top = 4 left = 4 bottom = 4 right = 4 }
-
-			background = {
-				name = "Background"
-				quadTextureSprite ="GFX_tiled_bg"
-			}
 
 			# gridboxtype of members
 			gridboxtype = {
 				name = "player_list_gridbox"
 				position = { x = 0 y = 300 }
-				size = { width = 259 height = 100 }
-				slotsize = { width = 259 height = 100 }
-				max_slots_horizontal = 5
+				size = { width = 120 height = 100 }
+				slotsize = { width = 120 height = 100 }
+				max_slots_horizontal = 8
+				add_horizontal = yes
+			}
+		}
+
+
+
+		containerWindowType = {
+			name = "fascism_player_list"
+			position = { x = 75 y = 500 }
+			size = { width = 1000 height = 223 }
+			margin = { top = 4 left = 4 bottom = 4 right = 4 }
+
+			# gridboxtype of members
+			gridboxtype = {
+				name = "fascism_player_list_gridbox"
+				position = { x = 0 y = 0 }
+				size = { width = 120 height = 100 }
+				slotsize = { width = 120 height = 100 }
+				max_slots_horizontal = 8
 				add_horizontal = yes
 			}
 		}
@@ -121,19 +152,33 @@ guiTypes = {
 		position = { x = 50 y = 250 }
 		size = { width = 600 height = 41 }
 
-		background = {
-			name = "Background"
-			quadTextureSprite ="GFX_tiled_bg"
-		}
-
-		iconType = {
+		buttonType = {
 			name = "player_flag"
 			position = { x = 0 y = 0 }
 			spriteType = "GFX_shield_medium"
 		}
 
 		iconType = {
-			name = "member_flag_border"
+			name = "player_flag_border"
+			quadTextureSprite = "GFX_large_flag_frame"
+			position = { x = -5 y = 0 }
+			alwaystransparent = yes
+		}
+	}
+
+	containerWindowType = {
+		name = "fascism_player_list_entry"
+		position = { x = 50 y = 550 }
+		size = { width = 600 height = 41 }
+
+		buttonType = {
+			name = "player_flag"
+			position = { x = 0 y = 0 }
+			spriteType = "GFX_shield_medium"
+		}
+
+		iconType = {
+			name = "player_flag_border"
 			quadTextureSprite = "GFX_large_flag_frame"
 			position = { x = -5 y = 0 }
 			alwaystransparent = yes
