@@ -89,7 +89,7 @@ guiTypes = {
 
 		instantTextboxType = {
 			name = "chinese_faction"
-			position = { x = -5 y = 500 }
+			position = { x = 15 y = 500 }
 			font = "hoi_20b"
 			format = centre
 			text = "China"
@@ -97,7 +97,7 @@ guiTypes = {
 
 		instantTextboxType = {
 			name = "soviet_faction"
-			position = { x = 145 y = 500 }
+			position = { x = 165 y = 500 }
 			font = "hoi_20b"
 			format = centre
 			text = "Comintern"
@@ -105,7 +105,7 @@ guiTypes = {
 
 		instantTextboxType = {
 			name = "allies_faction"
-			position = { x = 355 y = 500 }
+			position = { x = 375 y = 500 }
 			font = "hoi_20b"
 			format = centre
 			text = "Allies"
@@ -113,7 +113,7 @@ guiTypes = {
 
 		instantTextboxType = {
 			name = "axis_faction"
-			position = { x = 625 y = 500 }
+			position = { x = 645 y = 500 }
 			font = "hoi_20b"
 			format = centre
 			text = "Axis"
@@ -121,7 +121,7 @@ guiTypes = {
 
 		instantTextboxType = {
 			name = "neutrality_faction"
-			position = { x = 895 y = 500 }
+			position = { x = 915 y = 500 }
 			font = "hoi_20b"
 			format = centre
 			text = "Neutral"
@@ -174,7 +174,7 @@ guiTypes = {
 
 		containerWindowType = {
 			name = "chinese_countries_player_list"
-			position = { x = 0 y = -10 }
+			position = { x = 20 y = -10 }
 			size = { width = 1000 height = 223 }
 			margin = { top = 4 left = 4 bottom = 4 right = 4 }
 
@@ -191,7 +191,7 @@ guiTypes = {
 
 		containerWindowType = {
 			name = "communism_player_list"
-			position = { x = 150 y = -10 }
+			position = { x = 170 y = -10 }
 			size = { width = 1000 height = 223 }
 			margin = { top = 4 left = 4 bottom = 4 right = 4 }
 
@@ -208,7 +208,7 @@ guiTypes = {
 
 		containerWindowType = {
 			name = "democratic_player_list"
-			position = { x = 300 y = -10 }
+			position = { x = 320 y = -10 }
 			size = { width = 1000 height = 223 }
 			margin = { top = 4 left = 4 bottom = 4 right = 4 }
 
@@ -225,7 +225,7 @@ guiTypes = {
 
 		containerWindowType = {
 			name = "fascism_player_list"
-			position = { x = 570 y = -10 }
+			position = { x = 590 y = -10 }
 			size = { width = 1000 height = 223 }
 			margin = { top = 4 left = 4 bottom = 4 right = 4 }
 
@@ -242,7 +242,7 @@ guiTypes = {
 
 		containerWindowType = {
 			name = "neutral_player_list"
-			position = { x = 840 y = -10 }
+			position = { x = 860 y = -10 }
 			size = { width = 1000 height = 223 }
 			margin = { top = 4 left = 4 bottom = 4 right = 4 }
 
