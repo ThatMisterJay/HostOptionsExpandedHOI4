@@ -1,49 +1,51 @@
 # Host Options Expanded scripted effects
+# Splits initial country array up in 5 separate arrays
 
 sort_array_by_factions = {
+	clear_array = global.chinese_countries_array
+	clear_array = global.democratic_countries_array
+	clear_array = global.communist_countries_array
 	clear_array = global.fascist_countries_array
-	for_loop_effect = {
-		start = 0
-		end = global.playerbase^num
-		value = v
-		set_variable = { array_country = var:playerbase^v }
+	clear_array = global.neutral_countries_array
+	for_each_scope_loop = {
+		array = global.playerbase
 
-		var:playerbase^v = {
+		This = {
 			if = {
 				limit = { OR = { tag = CHI tag = PRC } }
 
 				#Add chinese country to array
-				add_to_array = { chinese_countries_array = PREV.id }
+				add_to_array = { global.chinese_countries_array = This.id }
 			}
 			#If government is democratic
 			else_if = {
 				limit = { has_government = democratic }
 
 				#Add democratic country to array
-				add_to_array = { democratic_countries_array = PREV.id }
+				add_to_array = { global.democratic_countries_array = This.id }
 			}
 			# If government is gommie
 			else_if = {
 				limit = { has_government = communism }
 
 				#Add gommie country to array
-				add_to_array = { communist_countries_array = PREV.id }
+				add_to_array = { global.communist_countries_array = This.id }
 			}
 			# If government is nezi
 			else_if = {
 				limit = { has_government = fascism }
 
 				#Add fascist country to array
-				add_to_array = { global.fascist_countries_array = PREV.id }
+				add_to_array = { global.fascist_countries_array = This.id }
 			}
 			# If government is neutral
 			else = {
 				limit = { has_government = neutrality }
 
 				#Add neutral country to array
-				add_to_array = { neutral_countries_array = PREV.id }
+				add_to_array = { global.neutral_countries_array = This.id }
 			}
-			log = "[?PREV.GetName]"
+			log = "[?This.GetName]"
 		}
 		clear_variable = array_country
 	}

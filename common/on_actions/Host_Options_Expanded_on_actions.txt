@@ -8,8 +8,10 @@ on_actions = {
                 add_to_array = { global.playerbase = THIS.id }
             }
 
-            FRA = { save_global_event_target_as = game_host }
+            GER = { save_global_event_target_as = game_host }
 
+            CHI = { add_to_array = { global.playerbase = THIS.id } }
+            PRC = { add_to_array = { global.playerbase = THIS.id } }
             FRA = { add_to_array = { global.playerbase = THIS.id } }
             ENG = { add_to_array = { global.playerbase = THIS.id } }
             HOL = { add_to_array = { global.playerbase = THIS.id } }
@@ -21,6 +23,9 @@ on_actions = {
             ITA = { add_to_array = { global.playerbase = THIS.id } }
             BUL = { add_to_array = { global.playerbase = THIS.id } }
             ROM = { add_to_array = { global.playerbase = THIS.id } }
+
+            SOV = { add_to_array = { global.playerbase = THIS.id } }
+            MON = { add_to_array = { global.playerbase = THIS.id } }
 
 			#GER = { add_to_array = { global.fascist_countries_array = THIS.id } }
 			#ITA = { add_to_array = { global.fascist_countries_array = THIS.id } }

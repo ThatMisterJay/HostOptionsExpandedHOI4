@@ -66,8 +66,9 @@ guiTypes = {
 
 		instantTextboxType = {
 			name = "host_name"
-			position = { x = 535 y = 190 }
+			position = { x = 495 y = 190 }
 			font = "hoi_18mbs"
+			format = centre
 			text = "[game_host.GetNameDefCap]"
 		}
 
@@ -85,6 +86,52 @@ guiTypes = {
 			orientation = "CENTER"
 			alwaystransparent = yes
 		}
+
+		instantTextboxType = {
+			name = "chinese_faction"
+			position = { x = -5 y = 500 }
+			font = "hoi_20b"
+			format = centre
+			text = "China"
+		}
+
+		instantTextboxType = {
+			name = "soviet_faction"
+			position = { x = 145 y = 500 }
+			font = "hoi_20b"
+			format = centre
+			text = "Comintern"
+		}
+
+		instantTextboxType = {
+			name = "allies_faction"
+			position = { x = 355 y = 500 }
+			font = "hoi_20b"
+			format = centre
+			text = "Allies"
+		}
+
+		instantTextboxType = {
+			name = "axis_faction"
+			position = { x = 625 y = 500 }
+			font = "hoi_20b"
+			format = centre
+			text = "Axis"
+		}
+
+		instantTextboxType = {
+			name = "neutrality_faction"
+			position = { x = 895 y = 500 }
+			font = "hoi_20b"
+			format = centre
+			text = "Neutral"
+		}
+
+
+
+
+
+
 
 		buttonType = {
 			name = "close_button"
@@ -108,8 +155,6 @@ guiTypes = {
 			orientation = center
 		}
 
-
-
 		containerWindowType = {
 			name = "player_list"
 			position = { x = 75 y = -250 }
@@ -127,11 +172,60 @@ guiTypes = {
 			}
 		}
 
+		containerWindowType = {
+			name = "chinese_countries_player_list"
+			position = { x = 0 y = -10 }
+			size = { width = 1000 height = 223 }
+			margin = { top = 4 left = 4 bottom = 4 right = 4 }
 
+			# gridboxtype of members
+			gridboxtype = {
+				name = "chinese_countries_player_list_gridbox"
+				position = { x = 0 y = 0 }
+				size = { width = 120 height = 100 }
+				slotsize = { width = 120 height = 100 }
+				max_slots_horizontal = 1
+				add_horizontal = yes
+			}
+		}
+
+		containerWindowType = {
+			name = "communism_player_list"
+			position = { x = 150 y = -10 }
+			size = { width = 1000 height = 223 }
+			margin = { top = 4 left = 4 bottom = 4 right = 4 }
+
+			# gridboxtype of members
+			gridboxtype = {
+				name = "communist_player_list_gridbox"
+				position = { x = 0 y = 0 }
+				size = { width = 120 height = 100 }
+				slotsize = { width = 120 height = 100 }
+				max_slots_horizontal = 1
+				add_horizontal = yes
+			}
+		}
+
+		containerWindowType = {
+			name = "democratic_player_list"
+			position = { x = 300 y = -10 }
+			size = { width = 1000 height = 223 }
+			margin = { top = 4 left = 4 bottom = 4 right = 4 }
+
+			# gridboxtype of members
+			gridboxtype = {
+				name = "democratic_player_list_gridbox"
+				position = { x = 0 y = 0 }
+				size = { width = 120 height = 100 }
+				slotsize = { width = 120 height = 100 }
+				max_slots_horizontal = 2
+				add_horizontal = yes
+			}
+		}
 
 		containerWindowType = {
 			name = "fascism_player_list"
-			position = { x = 75 y = 500 }
+			position = { x = 570 y = -10 }
 			size = { width = 1000 height = 223 }
 			margin = { top = 4 left = 4 bottom = 4 right = 4 }
 
@@ -141,7 +235,24 @@ guiTypes = {
 				position = { x = 0 y = 0 }
 				size = { width = 120 height = 100 }
 				slotsize = { width = 120 height = 100 }
-				max_slots_horizontal = 8
+				max_slots_horizontal = 2
+				add_horizontal = yes
+			}
+		}
+
+		containerWindowType = {
+			name = "neutral_player_list"
+			position = { x = 840 y = -10 }
+			size = { width = 1000 height = 223 }
+			margin = { top = 4 left = 4 bottom = 4 right = 4 }
+
+			# gridboxtype of members
+			gridboxtype = {
+				name = "neutral_player_list_gridbox"
+				position = { x = 0 y = 0 }
+				size = { width = 120 height = 100 }
+				slotsize = { width = 120 height = 100 }
+				max_slots_horizontal = 2
 				add_horizontal = yes
 			}
 		}
@@ -167,7 +278,83 @@ guiTypes = {
 	}
 
 	containerWindowType = {
+		name = "chinese_countries_player_list_entry"
+		position = { x = 50 y = 550 }
+		size = { width = 600 height = 41 }
+
+		buttonType = {
+			name = "player_flag"
+			position = { x = 0 y = 0 }
+			spriteType = "GFX_shield_medium"
+		}
+
+		iconType = {
+			name = "player_flag_border"
+			quadTextureSprite = "GFX_large_flag_frame"
+			position = { x = -5 y = 0 }
+			alwaystransparent = yes
+		}
+	}
+
+	containerWindowType = {
+		name = "democratic_player_list_entry"
+		position = { x = 50 y = 550 }
+		size = { width = 600 height = 41 }
+
+		buttonType = {
+			name = "player_flag"
+			position = { x = 0 y = 0 }
+			spriteType = "GFX_shield_medium"
+		}
+
+		iconType = {
+			name = "player_flag_border"
+			quadTextureSprite = "GFX_large_flag_frame"
+			position = { x = -5 y = 0 }
+			alwaystransparent = yes
+		}
+	}
+
+	containerWindowType = {
+		name = "communism_player_list_entry"
+		position = { x = 50 y = 550 }
+		size = { width = 600 height = 41 }
+
+		buttonType = {
+			name = "player_flag"
+			position = { x = 0 y = 0 }
+			spriteType = "GFX_shield_medium"
+		}
+
+		iconType = {
+			name = "player_flag_border"
+			quadTextureSprite = "GFX_large_flag_frame"
+			position = { x = -5 y = 0 }
+			alwaystransparent = yes
+		}
+	}
+
+	containerWindowType = {
 		name = "fascism_player_list_entry"
+		position = { x = 50 y = 550 }
+		size = { width = 600 height = 41 }
+
+		buttonType = {
+			name = "player_flag"
+			position = { x = 0 y = 0 }
+			spriteType = "GFX_shield_medium"
+		}
+
+		iconType = {
+			name = "player_flag_border"
+			quadTextureSprite = "GFX_large_flag_frame"
+			position = { x = -5 y = 0 }
+			alwaystransparent = yes
+		}
+	}
+
+	containerWindowType = {
+		name = "neutral_player_list_entry"
 		position = { x = 50 y = 550 }
 		size = { width = 600 height = 41 }
 

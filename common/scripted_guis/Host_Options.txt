@@ -62,9 +62,29 @@ scripted_gui = {
 				entry_container = player_list_entry
 				change_scope = yes
 			}
+			chinese_countries_player_list_gridbox = {
+				array = global.chinese_countries_array
+				entry_container = chinese_countries_player_list_entry
+				change_scope = yes
+			}
+			democratic_player_list_gridbox = {
+				array = global.democratic_countries_array
+				entry_container = democratic_player_list_entry
+				change_scope = yes
+			}
+			communist_player_list_gridbox = {
+				array = global.communist_countries_array
+				entry_container = communism_player_list_entry
+				change_scope = yes
+			}
 			fascism_player_list_gridbox = {
 				array = global.fascist_countries_array
 				entry_container = fascism_player_list_entry
+				change_scope = yes
+			}
+			neutral_player_list_gridbox = {
+				array = global.neutral_countries_array
+				entry_container = neutral_player_list_entry
 				change_scope = yes
 			}
 		}
