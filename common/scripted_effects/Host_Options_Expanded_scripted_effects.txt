@@ -12,28 +12,28 @@ sort_array_by_factions = {
 
 		This = {
 			if = {
-				limit = { OR = { tag = CHI tag = PRC } }
+				limit = { is_ching_chong = yes }
 
 				#Add chinese country to array
 				add_to_array = { global.chinese_countries_array = This.id }
 			}
 			#If government is democratic
 			else_if = {
-				limit = { has_government = democratic }
+				limit = { is_allied_with_allies = yes }
 
 				#Add democratic country to array
 				add_to_array = { global.democratic_countries_array = This.id }
 			}
 			# If government is gommie
 			else_if = {
-				limit = { has_government = communism }
+				limit = { is_allied_with_comintern = yes }
 
 				#Add gommie country to array
 				add_to_array = { global.communist_countries_array = This.id }
 			}
 			# If government is nezi
 			else_if = {
-				limit = { has_government = fascism }
+				limit = { is_allied_with_axis = yes }
 
 				#Add fascist country to array
 				add_to_array = { global.fascist_countries_array = This.id }
@@ -49,4 +49,12 @@ sort_array_by_factions = {
 		}
 		clear_variable = array_country
 	}
+}
+
+add_player_countries = {
+	every_country = {
+		limit = { is_ai = no }
+		add_to_array = { global.playerbase = THIS.id }
+	}
+	sort_array_by_factions = yes
 }

@@ -3,15 +3,12 @@ on_actions = {
 		effect = {
 			set_global_flag = creating_playerbase
 
-            every_country = {
-                limit = { is_ai = no }
-                add_to_array = { global.playerbase = THIS.id }
-            }
-
+            #Setting Host
             GER = { save_global_event_target_as = game_host }
 
             CHI = { add_to_array = { global.playerbase = THIS.id } }
             PRC = { add_to_array = { global.playerbase = THIS.id } }
+            XSM = { add_to_array = { global.playerbase = THIS.id } }
             FRA = { add_to_array = { global.playerbase = THIS.id } }
             ENG = { add_to_array = { global.playerbase = THIS.id } }
             HOL = { add_to_array = { global.playerbase = THIS.id } }
@@ -27,8 +24,9 @@ on_actions = {
             SOV = { add_to_array = { global.playerbase = THIS.id } }
             MON = { add_to_array = { global.playerbase = THIS.id } }
 
-			#GER = { add_to_array = { global.fascist_countries_array = THIS.id } }
-			#ITA = { add_to_array = { global.fascist_countries_array = THIS.id } }
+            random_country = {
+                add_player_countries = yes
+            }
 		}
 	}
 }
