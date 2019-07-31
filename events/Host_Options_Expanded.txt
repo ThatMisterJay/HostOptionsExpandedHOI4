@@ -1,13 +1,12 @@
 add_namespace = Host_Options_Expanded
 
-
+#Logging purposes
 country_event = {
 	id = Host_Options_Expanded.1
 	title = Host_Options_Expanded.1.t
 	desc = Host_Options_Expanded.1.d
 
 	is_triggered_only = yes
-
 
 	option = {
 		name = Host_Options_Expanded.1.a
@@ -19,6 +18,7 @@ country_event = {
 	}
 }
 
+#Sorting the array through event, only a helper
 country_event = {
 	id = Host_Options_Expanded.2
 	title = Host_Options_Expanded.2.t
@@ -26,9 +26,48 @@ country_event = {
 
 	is_triggered_only = yes
 
-
 	option = {
 		name = Host_Options_Expanded.2.a
 		sort_array_by_factions = yes
+	}
+}
+
+#Permission to switch faction
+country_event = {
+	id = Host_Options_Expanded.3
+	title = Host_Options_Expanded.3.t
+	desc = Host_Options_Expanded.3.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = Host_Options_Expanded.3.a
+		event_target:selected_player = { set_country_flag = permission_given_for_ideology_switch }
+		event_target:host_country = { country_event = { id = Host_Options_Expanded.4 } }
+	}
+
+	option = {
+		name = Host_Options_Expanded.3.b
+		event_target:selected_player = { set_country_flag = permission_not_given_for_ideology_switch }
+		event_target:host_country = { country_event = { id = Host_Options_Expanded.4 } }
+	}
+}
+
+#Permission not given, start vote?
+country_event = {
+	id = Host_Options_Expanded.4
+	title = Host_Options_Expanded.4.t
+	desc = Host_Options_Expanded.4.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = Host_Options_Expanded.4.a
+		event_target:selected_player = { set_country_flag = vote_started_for_ideology_switch }
+	}
+
+	option = {
+		name = Host_Options_Expanded.4.b
+		event_target:selected_player = { set_country_flag = vote_started_for_ideology_switch }
 	}
 }

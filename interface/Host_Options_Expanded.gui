@@ -232,18 +232,62 @@ guiTypes = {
 	}
 	containerWindowType = {
 		name = "player_options_container"
-		position = { x = 100 y = 100 }
+		position = { x = 904 y = 1000 }
 		Orientation = UPPER_LEFT
 
-		buttonType = {
-			name ="host_options_icon"
-			spriteType = "GFX_Host_Options_icon"
-			position = { x= 750 y = 600 }
-			shortcut = "ctrl+k"
-
-			pdx_tooltip = "HOST_TOOLTIP"
-			pdx_tooltip_delayed = "HOST_TOOLTIP_DELAYED"
+		iconType = {
+			name = "player_flag"
+			position = { x = 0 y = 0 }
+			spriteType = "GFX_shield_medium"
 		}
+
+		iconType = {
+			name = "player_flag_border"
+			quadTextureSprite = "GFX_large_flag_frame"
+			position = { x = -5 y = 0 }
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			name = "option_1"
+			position = { x = 100 y = -2 }
+			spriteType = "GFX_theater_group_assign_btn"
+			font = "hoi_20b"
+			text = "Move to Chinese Faction"
+		}
+
+		buttonType = {
+			name = "option_2"
+			position = { x = 100 y = 33 }
+			spriteType = "GFX_theater_group_assign_btn"
+			font = "hoi_20b"
+			text = "Move to Comintern"
+		}
+
+		buttonType = {
+			name = "option_3"
+			position = { x = 100 y = 68 }
+			spriteType = "GFX_theater_group_assign_btn"
+			font = "hoi_20b"
+			text = "Move to Allies"
+		}
+
+		buttonType = {
+			name = "option_4"
+			position = { x = 100 y = 103 }
+			spriteType = "GFX_theater_group_assign_btn"
+			font = "hoi_20b"
+			text = "Move to Axis"
+		}
+
+		buttonType = {
+			name = "option_5"
+			position = { x = 100 y = 138 }
+			spriteType = "GFX_theater_group_assign_btn"
+			font = "hoi_20b"
+			text = "Move to Neutral"
+		}
+
 	}
 
 	containerWindowType = {

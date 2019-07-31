@@ -12,6 +12,7 @@ scripted_gui = {
 				set_temp_variable = { show = 1 }
 				subtract_from_temp_variable = { show = show_host_options }
 				set_variable = { show_host_options = show }
+				set_variable = { show_player_options = 0 }
 			}
 		}
 	}
@@ -29,6 +30,7 @@ scripted_gui = {
 		effects = {
 			close_button_click = {
 				set_variable = { show_host_options = 0 }
+				set_variable = { show_player_options = 0 }
 			}
 
 			player_flag_click = {
@@ -37,9 +39,12 @@ scripted_gui = {
 						goto_state = PREV
 					}
 				}
-				set_temp_variable = { show2 = 1 }
-				subtract_from_temp_variable = { show2 = show_player_options }
-				set_variable = { show_player_options = show2 }
+				save_global_event_target_as = selected_player
+				event_target:game_host = {
+					set_temp_variable = { show = 1 }
+					subtract_from_temp_variable = { show = show_player_options }
+					set_variable = { show_player_options = show }
+				}
 			}
 
 			host_flag_click = {
@@ -102,9 +107,40 @@ scripted_gui = {
 		}
 
 		effects = {
+			player_flag_click = {
+				event_target:selected_player = { add_political_power = 5 }
+			}
+			option_1_click = {
+				event_target:selected_player = {
+					switch_country_to_ching_chong = yes
+				}
+			}
+			option_2_click = {
+				event_target:selected_player = {
+					switch_country_to_comintern = yes
+				}
+			}
+			option_3_click = {
+				event_target:selected_player = {
+					switch_country_to_allies = yes
+				}
+			}
+			option_4_click = {
+				event_target:selected_player = {
+					switch_country_to_axis = yes
+				}
+			}
+			option_5_click = {
+				event_target:selected_player = {
+					switch_country_to_neutral = yes
+				}
+			}
 		}
 
 		properties = {
+			player_flag = {
+				image = "[selected_player.GetFlag]"
+			}
 		}
 	}
 }
