@@ -39,3 +39,8 @@
     player_permission.8.t:0 "A vote is already going on!"
     player_permission.8.d:0 "You cannot move players to different factions before the vote on [country_being_asked_permission.GetName] is over."
     player_permission.8.a:0 "Okay..."
+
+    switching_countries.1.t:0 "Switching Countries"
+    switching_countries.1.d:0 "Are you sure you want to switch [country_to_switch.GetName] with [country_to_switch_to.GetName]? Now is your last chance to turn back."
+    switching_countries.1.a:0 "Yes"
+    switching_countries.1.b:0 "No"

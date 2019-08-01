@@ -88,7 +88,7 @@ country_event = {
 		event_target:country_being_asked_permission = {
 			set_country_flag = permission_given_for_ideology_switch
 		}
-		event_target:host_country = { country_event = { id = player_permission.7 } }
+		event_target:game_host = { country_event = { id = player_permission.7 } }
 	}
 
 	option = {
@@ -96,7 +96,7 @@ country_event = {
 		event_target:country_being_asked_permission = {
 			set_country_flag = permission_not_given_for_ideology_switch
 		}
-		event_target:host_country = { country_event = { id = player_permission.4 } }
+		event_target:game_host = { country_event = { id = player_permission.4 } }
 	}
 }
 
@@ -223,5 +223,107 @@ country_event = {
 
 	option = {
 		name = player_permission.8.a
+	}
+}
+
+add_namespace = switching_countries
+
+#Switching countries, confirmation: used for both host and player
+country_event = {
+	id = switching_countries.1
+	title = switching_countries.1.t
+	desc = switching_countries.1.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = switching_countries.1.a
+		ai_chance = { factor = 100 }
+		if = {
+			limit = { TAG = event_target:game_host }
+			set_global_flag = confirm_country_switch_host
+		}
+		if = {
+			limit = {
+				OR = {
+					TAG = event_target:country_to_switch
+					TAG = event_target:country_to_switch_to
+				}
+				NOT = { has_global_flag = confirm_country_switch_player }
+			}
+			set_global_flag = confirm_country_switch_player
+		}
+
+		hidden_effect = {
+			if = {
+				limit = {
+					has_global_flag = confirm_country_switch_host
+					has_global_flag = confirm_country_switch_player
+				}
+				country_event = switching_countries.2
+			}
+		}
+	}
+
+	#No switching
+	option = {
+		name = switching_countries.1.b
+		ai_chance = { factor = 0 }
+	}
+}
+
+#Clearing the countries that were switched
+country_event = {
+	id = switching_countries.2
+	hidden = yes
+	is_triggered_only = yes
+
+	option = {
+		if = {
+			limit = { event_target:game_host = { TAG = event_target:country_to_switch } }
+			event_target:country_to_switch_to = { save_global_event_target_as = game_host }
+		}
+
+		event_target:country_to_switch_to = {
+			change_tag_from = event_target:country_to_switch
+		}
+
+		clear_global_event_target = country_to_switch
+		clear_global_event_target = country_to_switch_to
+		clr_global_flag = confirm_country_switch_host
+		clr_global_flag = confirm_country_switch_player
+	}
+}
+
+country_event = {
+	id = switching_countries.3
+	hidden = yes
+	is_triggered_only = yes
+
+	option = {
+		clear_global_event_target = country_to_switch
+		clear_global_event_target = country_to_switch_to
+	}
+}
+
+country_event = {
+	id = switching_countries.4
+	hidden = yes
+	is_triggered_only = yes
+
+	option = {
+		GER = { save_global_event_target_as = country_to_switch_to }
+	}
+}
+
+country_event = {
+	id = switching_countries.5
+	hidden = yes
+	is_triggered_only = yes
+
+	option = {
+		if = {
+			limit = { event_target:country_to_switch_to = { TAG = GER } }
+			GER = { add_political_power = 5 }
 	}
 }

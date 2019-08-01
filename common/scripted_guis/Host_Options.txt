@@ -195,12 +195,54 @@ scripted_gui = {
 					}
 				}
 			}
+			option_6_click = {
+				event_target:selected_player = { save_global_event_target_as = country_to_switch }
+			}
 		}
 
 		properties = {
-			player_flag = {
-				image = "[selected_player.GetFlag]"
+			player_flag = { image = "[selected_player.GetFlag]" }
+		}
+	}
+
+	country_switcher = {
+		context_type = player_context
+
+		window_name = "country_switcher_container"
+
+		visible = {
+			any_country = {
+				OR = {
+					TAG = event_target:country_to_switch
+					TAG = event_target:country_to_switch_to
+				}
+			}
+			ROOT = { TAG = global_event_target:game_host }
+			check_variable = { show_host_options > 0.0 }
+		}
+
+		effects = {
+			arrow_click = {
+				event_target:game_host = { country_event = switching_countries.1 }
+				event_target:country_to_switch = { country_event = switching_countries.1 }
+			}
+
+			player_flag_selected_country_to_switch_to_right_click = {
+				clear_global_event_target = country_to_switch_to
 			}
 		}
+
+		properties = {
+			player_flag_selected_country_to_switch = { image = "[country_to_switch.GetFlag]" }
+			player_flag_selected_country_to_switch_to = { image = "[country_to_switch_to.GetFlag]" }
+		}
+
+		#dynamic_lists = {
+		#	all_ai_countries_gridbox = {
+		#		array = global.chinese_countries_array
+		#		entry_container = chinese_countries_player_list_entry
+		#		change_scope = yes
+		#	}
+		#}
 	}
 }

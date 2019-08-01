@@ -127,7 +127,32 @@ guiTypes = {
 			text = "Neutral"
 		}
 
+		instantTextboxType = {
+			name = "country_options_title"
+			position = { x = 320 y = 850 }
+			font = "hoi_20b"
+			format = center
+			text = "Country Options"
+		}
+
+		instantTextboxType = {
+			name = "country_options_title_secondary"
+			position = { x = 320 y = 880 }
+			font = "hoi_18mbs"
+			maxwidth = 300
+			format = left
+			text = "Click on a flag to get started!"
+		}
+
 		### GENERAL OPTIONS ###
+
+			instantTextboxType = {
+				name = "general_options_title"
+				position = { x = 730 y = 850 }
+				font = "hoi_20b"
+				format = centre
+				text = "General Options"
+			}
 
 			buttonType = {
 				name = "general_option_1"
@@ -261,6 +286,7 @@ guiTypes = {
 			}
 		}
 	}
+
 	containerWindowType = {
 		name = "player_options_container"
 		position = { x = 904 y = 1000 }
@@ -317,6 +343,53 @@ guiTypes = {
 			spriteType = "GFX_theater_group_assign_btn"
 			font = "hoi_20b"
 			text = "Move to Neutral"
+		}
+
+		buttonType = {
+			name = "option_6"
+			position = { x = 100 y = 173 }
+			spriteType = "GFX_theater_group_assign_btn"
+			font = "hoi_20b"
+			text = "Select as Country to Move"
+		}
+	}
+
+	containerWindowType = {
+		name = "country_switcher_container"
+		position = { x = 1100 y = 800 }
+		Orientation = UPPER_LEFT
+
+		buttonType = {
+			name = "player_flag_selected_country_to_switch"
+			position = { x = 0 y = 0 }
+			spriteType = "GFX_shield_medium"
+		}
+
+		iconType = {
+			name = "player_flag_border_1"
+			quadTextureSprite = "GFX_large_flag_frame"
+			position = { x = -5 y = 0 }
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			name = "player_flag_selected_country_to_switch_to"
+			position = { x = 200 y = 0 }
+			spriteType = "GFX_shield_medium"
+		}
+
+		iconType = {
+			name = "player_flag_border_2"
+			quadTextureSprite = "GFX_large_flag_frame"
+			position = { x = 195 y = 0 }
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			name = "arrow"
+			position = { x = 125 y = 13 }
+			spriteType = "GFX_floating_arrows"
+			frame = 2
 		}
 	}
 
