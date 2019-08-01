@@ -47,6 +47,11 @@ scripted_gui = {
 				}
 			}
 
+			general_option_1_click = { add_threat = 1 }
+			general_option_2_click = { add_threat = 5 }
+			general_option_3_click = { add_threat = -1 }
+			general_option_4_click = { add_threat = -5 }
+
 			host_flag_click = {
 				event_target:game_host = {
 					capital_scope = {

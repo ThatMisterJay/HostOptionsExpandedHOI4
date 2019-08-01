@@ -28,7 +28,7 @@
     player_permission.5.b:0 "Nay, let him be"
 
     player_permission.6.t:0 "Vote on [selected_player.GetNameDef]: Results"
-    player_permission.6.d.succeed:0 "[?vote_for|%G0] of the players have given permission for the ideology change. The player now has the changed ideology."
+    player_permission.6.d.succeed:0 "[?vote_for|%G0] of the players have given permission for the ideology change. The player can now be moved to the wanted ideology by the host."
     player_permission.6.d.fail:0 "[?vote_for|%G0] of the players have given permission for the ideology change. The vote has failed, and the player will keep their original ideology."
     player_permission.6.a:0 "Now on with the game."
 

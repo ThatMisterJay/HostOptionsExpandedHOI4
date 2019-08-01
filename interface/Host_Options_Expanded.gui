@@ -127,8 +127,39 @@ guiTypes = {
 			text = "Neutral"
 		}
 
+		### GENERAL OPTIONS ###
 
+			buttonType = {
+				name = "general_option_1"
+				position = { x = 700 y = 878 }
+				spriteType = "GFX_diplo_filter_entry"
+				font = "hoi_16mbs"
+				text = "Add 1 tension"
+			}
 
+			buttonType = {
+				name = "general_option_2"
+				position = { x = 700 y = 915 }
+				spriteType = "GFX_diplo_filter_entry"
+				font = "hoi_16mbs"
+				text = "Add 5 tension"
+			}
+
+			buttonType = {
+				name = "general_option_3"
+				position = { x = 700 y = 952 }
+				spriteType = "GFX_diplo_filter_entry"
+				font = "hoi_16mbs"
+				text = "Add -1 tension"
+			}
+
+			buttonType = {
+				name = "general_option_4"
+				position = { x = 700 y = 989 }
+				spriteType = "GFX_diplo_filter_entry"
+				font = "hoi_16mbs"
+				text = "Add -5 tension"
+			}
 
 
 
@@ -287,7 +318,6 @@ guiTypes = {
 			font = "hoi_20b"
 			text = "Move to Neutral"
 		}
-
 	}
 
 	containerWindowType = {
