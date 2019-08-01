@@ -55,6 +55,7 @@ add_player_countries = {
 	every_country = {
 		limit = { is_ai = no }
 		add_to_array = { global.playerbase = THIS.id }
+		country_event = player_permission.2
 	}
 	sort_array_by_factions = yes
 }
@@ -103,6 +104,8 @@ switch_country_to_comintern = {
 	set_country_flag = switched_to_comintern_team
 	clr_country_flag = switched_off_comintern_team
 	sort_array_by_factions = yes
+	add_popularity = { ideology = communism popularity = 1 }
+	set_politics = { ruling_party = communism }
 }
 
 #Moves a country from their faction to the Allies faction
@@ -126,6 +129,8 @@ switch_country_to_allies = {
 	set_country_flag = switched_to_allies_team
 	clr_country_flag = switched_off_allies_team
 	sort_array_by_factions = yes
+	add_popularity = { ideology = democratic popularity = 1 }
+	set_politics = { ruling_party = democratic }
 }
 
 #Moves a country from their faction to the Allies faction
@@ -149,6 +154,8 @@ switch_country_to_axis = {
 	set_country_flag = switched_to_axis_team
 	clr_country_flag = switched_off_axis_team
 	sort_array_by_factions = yes
+	add_popularity = { ideology = fascism popularity = 1 }
+	set_politics = { ruling_party = fascism }
 }
 
 #Moves a country from their faction to the Neutral faction
@@ -172,4 +179,6 @@ switch_country_to_neutral = {
 	set_country_flag = switched_to_neutral_team
 	clr_country_flag = switched_off_neutral_team
 	sort_array_by_factions = yes
+	add_popularity = { ideology = neutrality popularity = 1 }
+	set_politics = { ruling_party = neutrality }
 }

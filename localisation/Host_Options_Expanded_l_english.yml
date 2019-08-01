@@ -1,2 +1,41 @@
 ﻿l_english:
     HOST_TOOLTIP:0 "§GOptions for Hosts§!"
+
+
+    #Events
+    player_permission.1.t:0 "Permission asked from [selected_player.GetName]"
+    player_permission.1.d:0 "[selected_player.GetName] did not give you permission to change their ideology at the start of the game. You are now asking them for permission, and if this person doesn't give it, you will be able to start a vote."
+    player_permission.1.a:0 "Good to know."
+
+    player_permission.2.t:0 "Host Asks for Ideology switching permission"
+    player_permission.2.d:0 "The Host of the game asks permission to change your Ideology. Do you agree to doing this?"
+    player_permission.2.a:0 "I give permission"
+    player_permission.2.b:0 "No permission"
+
+    player_permission.3.t:0 "The Host wants to switch your Ideology"
+    player_permission.3.d:0 "The Host of the game, [game_host.GetName], wants to change your Ideology. Do you agree to doing this? Not agreeing will lead to a vote, and if 80% of that vote is for, you will have your ideology changed regardless of whether you said no."
+    player_permission.3.a:0 "I give permission"
+    player_permission.3.b:0 "No permission, the Host is trolling me"
+
+    player_permission.4.t:0 "[selected_player.GetName] does not give permission!"
+    player_permission.4.d:0 "[selected_player.GetName] has not given permission for the ideology change. You now have the option to let it go, or to start a vote to which 80% of the players will have to agree."
+    player_permission.4.a:0 "Can't hold it back anymore..."
+    player_permission.4.b:0 "Start the vote."
+
+    player_permission.5.t:0 "Vote on [selected_player.GetNameDef]"
+    player_permission.5.d:0 "[selected_player.GetName] has not given permission for the ideology change. You now have to vote whether this person should have their ideology changed. You need at least 80% for this vote to succeed."
+    player_permission.5.a:0 "Aye, change his ideology"
+    player_permission.5.b:0 "Nay, let him be"
+
+    player_permission.6.t:0 "Vote on [selected_player.GetNameDef]: Results"
+    player_permission.6.d.succeed:0 "[?vote_for|%G0] of the players have given permission for the ideology change. The player now has the changed ideology."
+    player_permission.6.d.fail:0 "[?vote_for|%G0] of the players have given permission for the ideology change. The vote has failed, and the player will keep their original ideology."
+    player_permission.6.a:0 "Now on with the game."
+
+    player_permission.7.t:0 "[selected_player.GetName] has given permission!"
+    player_permission.7.d:0 "[selected_player.GetName] has given permission for any future ideology change."
+    player_permission.7.a:0 "Good."
+
+    player_permission.8.t:0 "A vote is already going on!"
+    player_permission.8.d:0 "You cannot move players to different factions before the vote on [country_being_asked_permission.GetName] is over."
+    player_permission.8.a:0 "Okay..."

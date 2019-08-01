@@ -108,31 +108,86 @@ scripted_gui = {
 
 		effects = {
 			player_flag_click = {
-				event_target:selected_player = { add_political_power = 5 }
+				#event_target:selected_player = { add_political_power = 5 }
 			}
 			option_1_click = {
 				event_target:selected_player = {
-					switch_country_to_ching_chong = yes
+					if = {
+						limit = { has_country_flag = permission_given_for_ideology_switch }
+						switch_country_to_ching_chong = yes
+					}
+					else_if = {
+						limit = { NOT = { has_global_flag = permission_being_asked } }
+						country_event = { id = player_permission.3 }
+						event_target:game_host = { country_event = player_permission.1 }
+					}
+					else = {
+						event_target:game_host = { country_event = player_permission.8 }
+					}
 				}
 			}
 			option_2_click = {
 				event_target:selected_player = {
-					switch_country_to_comintern = yes
+					if = {
+						limit = { has_country_flag = permission_given_for_ideology_switch }
+						switch_country_to_comintern = yes
+					}
+					else_if = {
+						limit = { NOT = { has_global_flag = permission_being_asked } }
+						country_event = { id = player_permission.3 }
+						event_target:game_host = { country_event = player_permission.1 }
+					}
+					else = {
+						event_target:game_host = { country_event = player_permission.8 }
+					}
 				}
 			}
 			option_3_click = {
 				event_target:selected_player = {
-					switch_country_to_allies = yes
+					if = {
+						limit = { has_country_flag = permission_given_for_ideology_switch }
+						switch_country_to_allies = yes
+					}
+					else_if = {
+						limit = { NOT = { has_global_flag = permission_being_asked } }
+						country_event = { id = player_permission.3 }
+						event_target:game_host = { country_event = player_permission.1 }
+					}
+					else = {
+						event_target:game_host = { country_event = player_permission.8 }
+					}
 				}
 			}
 			option_4_click = {
 				event_target:selected_player = {
-					switch_country_to_axis = yes
+					if = {
+						limit = { has_country_flag = permission_given_for_ideology_switch }
+						switch_country_to_axis = yes
+					}
+					else_if = {
+						limit = { NOT = { has_global_flag = permission_being_asked } }
+						country_event = { id = player_permission.3 }
+						event_target:game_host = { country_event = player_permission.1 }
+					}
+					else = {
+						event_target:game_host = { country_event = player_permission.8 }
+					}
 				}
 			}
 			option_5_click = {
 				event_target:selected_player = {
-					switch_country_to_neutral = yes
+					if = {
+						limit = { has_country_flag = permission_given_for_ideology_switch }
+						switch_country_to_neutral = yes
+					}
+					else_if = {
+						limit = { NOT = { has_global_flag = permission_being_asked } }
+						country_event = { id = player_permission.3 }
+						event_target:game_host = { country_event = player_permission.1 }
+					}
+					else = {
+						event_target:game_host = { country_event = player_permission.8 }
+					}
 				}
 			}
 		}
