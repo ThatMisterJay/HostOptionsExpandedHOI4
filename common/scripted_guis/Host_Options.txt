@@ -269,7 +269,10 @@ scripted_gui = {
 		}
 
 		effects = {
-
+			player_flag_ai_click = {
+				save_global_event_target_as = country_to_switch_to
+				GER = { add_political_power = 5 }
+			}
 		}
 
 		dynamic_lists = {
@@ -281,7 +284,7 @@ scripted_gui = {
 		}
 
 		properties = {
-			player_flag = { image = "[THIS.GetFlag]" }
+			player_flag_ai = { image = "[THIS.GetFlag]" }
 		}
 	}
 }
