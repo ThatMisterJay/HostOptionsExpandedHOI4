@@ -1,6 +1,23 @@
 # Host Options Expanded scripted effects
 # Splits initial country array up in 5 separate arrays
 
+add_player_countries = {
+	every_country = {
+		if = {
+			limit = {
+				is_ai = no
+			}
+			add_to_array = { global.playerbase = THIS.id }
+			country_event = player_permission.2
+		}
+		else_if = {
+			limit = { NOT = { is_in_array = { global.playerbase = THIS.id } } }
+			add_to_array = { global.aibase = THIS.id }
+		}
+	}
+	sort_array_by_factions = yes
+}
+
 sort_array_by_factions = {
 	clear_array = global.chinese_countries_array
 	clear_array = global.democratic_countries_array
@@ -49,15 +66,6 @@ sort_array_by_factions = {
 		}
 		clear_variable = array_country
 	}
-}
-
-add_player_countries = {
-	every_country = {
-		limit = { is_ai = no }
-		add_to_array = { global.playerbase = THIS.id }
-		country_event = player_permission.2
-	}
-	sort_array_by_factions = yes
 }
 
 #Moves a country from their faction to the Chinese faction

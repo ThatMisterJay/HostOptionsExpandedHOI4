@@ -325,5 +325,6 @@ country_event = {
 		if = {
 			limit = { event_target:country_to_switch_to = { TAG = GER } }
 			GER = { add_political_power = 5 }
+		}
 	}
 }

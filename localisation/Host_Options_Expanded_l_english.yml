@@ -44,3 +44,6 @@
     switching_countries.1.d:0 "Are you sure you want to switch [country_to_switch.GetName] with [country_to_switch_to.GetName]? Now is your last chance to turn back."
     switching_countries.1.a:0 "Yes"
     switching_countries.1.b:0 "No"
+
+    #GUI tooltips
+    HOE_UNSET_COUNTRY_TT:0 "Press Right Click to Unset \nPress Left Click to Select"

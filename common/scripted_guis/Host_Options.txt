@@ -13,6 +13,7 @@ scripted_gui = {
 				subtract_from_temp_variable = { show = show_host_options }
 				set_variable = { show_host_options = show }
 				set_variable = { show_player_options = 0 }
+				set_variable = { show_switch_options = 0 }
 			}
 		}
 	}
@@ -31,6 +32,7 @@ scripted_gui = {
 			close_button_click = {
 				set_variable = { show_host_options = 0 }
 				set_variable = { show_player_options = 0 }
+				set_variable = { show_switch_options = 0 }
 			}
 
 			player_flag_click = {
@@ -223,12 +225,24 @@ scripted_gui = {
 
 		effects = {
 			arrow_click = {
-				event_target:game_host = { country_event = switching_countries.1 }
-				event_target:country_to_switch = { country_event = switching_countries.1 }
+				if = {
+					limit = {
+						any_country = { TAG = event_target:country_to_switch }
+						any_country = { TAG = event_target:country_to_switch_to }
+					}
+					event_target:game_host = { country_event = switching_countries.1 }
+					event_target:country_to_switch = { country_event = switching_countries.1 }
+				}
 			}
 
 			player_flag_selected_country_to_switch_to_right_click = {
 				clear_global_event_target = country_to_switch_to
+			}
+
+			player_flag_selected_country_to_switch_to_click = {
+				set_temp_variable = { show = 1 }
+				subtract_from_temp_variable = { show = show_switch_options }
+				set_variable = { show_switch_options = show }
 			}
 		}
 
@@ -236,13 +250,38 @@ scripted_gui = {
 			player_flag_selected_country_to_switch = { image = "[country_to_switch.GetFlag]" }
 			player_flag_selected_country_to_switch_to = { image = "[country_to_switch_to.GetFlag]" }
 		}
+	}
 
-		#dynamic_lists = {
-		#	all_ai_countries_gridbox = {
-		#		array = global.chinese_countries_array
-		#		entry_container = chinese_countries_player_list_entry
-		#		change_scope = yes
-		#	}
-		#}
+	country_switcher = {
+		context_type = player_context
+
+		window_name = "country_switcher_country_to_switch_to_container"
+
+		visible = {
+			any_country = {
+				OR = {
+					TAG = event_target:country_to_switch
+					TAG = event_target:country_to_switch_to
+				}
+			}
+			ROOT = { TAG = global_event_target:game_host }
+			check_variable = { show_switch_options > 0.0 }
+		}
+
+		effects = {
+
+		}
+
+		dynamic_lists = {
+			ai_countries_list_gridbox = {
+				array = global.aibase
+				entry_container = ai_countries_list_entry
+				change_scope = yes
+			}
+		}
+
+		properties = {
+			player_flag = { image = "[THIS.GetFlag]" }
+		}
 	}
 }
