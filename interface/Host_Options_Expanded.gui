@@ -148,7 +148,7 @@ guiTypes = {
 
 			instantTextboxType = {
 				name = "general_options_title"
-				position = { x = 730 y = 850 }
+				position = { x = 760 y = 850 }
 				font = "hoi_20b"
 				format = centre
 				text = "General Options"
@@ -157,7 +157,7 @@ guiTypes = {
 			buttonType = {
 				name = "general_option_1"
 				position = { x = 700 y = 878 }
-				spriteType = "GFX_diplo_filter_entry"
+				spriteType = "GFX_HOE_button"
 				font = "hoi_16mbs"
 				text = "Add 1 tension"
 			}
@@ -165,7 +165,7 @@ guiTypes = {
 			buttonType = {
 				name = "general_option_2"
 				position = { x = 700 y = 915 }
-				spriteType = "GFX_diplo_filter_entry"
+				spriteType = "GFX_HOE_button"
 				font = "hoi_16mbs"
 				text = "Add 5 tension"
 			}
@@ -173,7 +173,7 @@ guiTypes = {
 			buttonType = {
 				name = "general_option_3"
 				position = { x = 700 y = 952 }
-				spriteType = "GFX_diplo_filter_entry"
+				spriteType = "GFX_HOE_button"
 				font = "hoi_16mbs"
 				text = "Add -1 tension"
 			}
@@ -181,9 +181,49 @@ guiTypes = {
 			buttonType = {
 				name = "general_option_4"
 				position = { x = 700 y = 989 }
-				spriteType = "GFX_diplo_filter_entry"
+				spriteType = "GFX_HOE_button"
 				font = "hoi_16mbs"
 				text = "Add -5 tension"
+			}
+
+			buttonType = {
+				name = "general_option_5"
+				position = { x = 700 y = 1026 }
+				spriteType = "GFX_HOE_button"
+				font = "hoi_16mbs"
+				text = "Spanish Civil War Off"
+			}
+
+			buttonType = {
+				name = "general_option_6"
+				position = { x = 700 y = 1026 }
+				spriteType = "GFX_HOE_button"
+				font = "hoi_16mbs"
+				text = "Spanish Civil War On"
+			}
+
+			buttonType = {
+				name = "general_option_7"
+				position = { x = 700 y = 1063 }
+				spriteType = "GFX_HOE_button"
+				font = "hoi_16mbs"
+				text = "AI Faction Joining Off"
+			}
+
+			buttonType = {
+				name = "general_option_8"
+				position = { x = 700 y = 1063 }
+				spriteType = "GFX_HOE_button"
+				font = "hoi_16mbs"
+				text = "AI Faction Joining On"
+			}
+
+			buttonType = {
+				name = "general_option_20"
+				position = { x = 880 y = 878 }
+				spriteType = "GFX_HOE_button"
+				font = "hoi_16mbs"
+				text = "Refresh Teams"
 			}
 
 
@@ -356,13 +396,15 @@ guiTypes = {
 
 	containerWindowType = {
 		name = "country_switcher_container"
-		position = { x = 1100 y = 800 }
+		position = { x = 1015 y = 880 }
 		Orientation = UPPER_LEFT
 
 		buttonType = {
 			name = "player_flag_selected_country_to_switch"
 			position = { x = 0 y = 0 }
 			spriteType = "GFX_shield_medium"
+
+			pdx_tooltip = "HOE_UNSET_COUNTRY_TT"
 		}
 
 		iconType = {
@@ -377,7 +419,7 @@ guiTypes = {
 			position = { x = 200 y = 0 }
 			spriteType = "GFX_shield_medium"
 
-			pdx_tooltip = "HOE_UNSET_COUNTRY_TT"
+			pdx_tooltip = "HOE_SET_AND_UNSET_COUNTRY_TT"
 		}
 
 		iconType = {
@@ -392,29 +434,23 @@ guiTypes = {
 			position = { x = 125 y = 13 }
 			spriteType = "GFX_floating_arrows"
 			frame = 2
-		}
-	}
-
-	containerWindowType = {
-		name = "country_switcher_country_to_switch_to_container"
-		position = { x = 1390 y = 620 }
-		size = { width = 500 height = 500 }
-		verticalScrollbar = "right_vertical_slider"
-
-		background = {
-			name = "Background"
-			quadTextureSprite ="GFX_tiled_bg"
+			pdx_tooltip = "CLICK_ME_TT"
 		}
 
 		containerWindowType = {
 			name = "ai_countries_list"
-			position = { x = -25 y = 0 }
-			size = { width = 500 height = 2000 }
+			position = { x = 822 y = -300 }
+			size = { width = 500 height = 500 }
+			verticalScrollbar = "right_vertical_slider"
+			background = {
+				name = "Background"
+				quadTextureSprite ="GFX_tiled_bg"
+			}
 
 			# gridboxtype of members
 			gridboxtype = {
 				name = "ai_countries_list_gridbox"
-				position = { x = 0 y = -228 }
+				position = { x = 0 y = -308 }
 				size = { width = 90 height = 60 }
 				slotsize = { width = 90 height = 60 }
 				max_slots_vertical = 25
@@ -422,6 +458,18 @@ guiTypes = {
 			}
 		}
 	}
+
+	#containerWindowType = {
+	#	name = "country_switcher_country_to_switch_to_container"
+	#	position = { x = 1390 y = 620 }
+	#	size = { width = 500 height = 500 }
+	#	verticalScrollbar = "right_vertical_slider"
+#
+	#	background = {
+	#		name = "Background"
+	#		quadTextureSprite ="GFX_tiled_bg"
+	#	}
+	#}
 
 	containerWindowType = {
 		name = "chinese_countries_player_list_entry"
@@ -432,6 +480,7 @@ guiTypes = {
 			name = "player_flag"
 			position = { x = 0 y = 0 }
 			spriteType = "GFX_shield_medium"
+			pdx_tooltip = "CLICK_ME_COUNTRY_OPTIONS_TT"
 		}
 
 		iconType = {
@@ -451,6 +500,7 @@ guiTypes = {
 			name = "player_flag"
 			position = { x = 0 y = 0 }
 			spriteType = "GFX_shield_medium"
+			pdx_tooltip = "CLICK_ME_COUNTRY_OPTIONS_TT"
 		}
 
 		iconType = {
@@ -470,6 +520,7 @@ guiTypes = {
 			name = "player_flag"
 			position = { x = 0 y = 0 }
 			spriteType = "GFX_shield_medium"
+			pdx_tooltip = "CLICK_ME_COUNTRY_OPTIONS_TT"
 		}
 
 		iconType = {
@@ -489,6 +540,7 @@ guiTypes = {
 			name = "player_flag"
 			position = { x = 0 y = 0 }
 			spriteType = "GFX_shield_medium"
+			pdx_tooltip = "CLICK_ME_COUNTRY_OPTIONS_TT"
 		}
 
 		iconType = {
@@ -508,6 +560,7 @@ guiTypes = {
 			name = "player_flag"
 			position = { x = 0 y = 0 }
 			spriteType = "GFX_shield_medium"
+			pdx_tooltip = "CLICK_ME_COUNTRY_OPTIONS_TT"
 		}
 
 		iconType = {
@@ -520,8 +573,8 @@ guiTypes = {
 
 	containerWindowType = {
 		name = "ai_countries_list_entry"
-		position = { x = 50 y = 250 }
-		size = { width = 600 height = 41 }
+		position = { x = 22 y = 20 }
+		size = { width = 600 height = 60 }
 
 		buttonType = {
 			name = "player_flag_ai"

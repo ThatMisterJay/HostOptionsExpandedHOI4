@@ -6,14 +6,16 @@ add_player_countries = {
 		if = {
 			limit = {
 				is_ai = no
+				NOT = { is_in_array = { global.playerbase = THIS.id } }
 			}
 			add_to_array = { global.playerbase = THIS.id }
-			country_event = player_permission.2
+			if = {
+				limit = { NOT = { has_country_flag = permission_given_for_ideology_switch } }
+				country_event = player_permission.2
+			}
 		}
 		else_if = {
-			limit = {
-				is_ai = yes
-			}
+			limit = { NOT = { is_in_array = { global.aibase = THIS.id } } }
 			add_to_array = { global.aibase = THIS.id }
 		}
 	}

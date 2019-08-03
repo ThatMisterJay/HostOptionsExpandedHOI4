@@ -4,25 +4,7 @@ on_actions = {
 			set_global_flag = creating_playerbase
 
             #Setting Host
-            GER = { save_global_event_target_as = game_host }
-
-            CHI = { add_to_array = { global.playerbase = THIS.id } }
-            PRC = { add_to_array = { global.playerbase = THIS.id } }
-            XSM = { add_to_array = { global.playerbase = THIS.id } }
-            FRA = { add_to_array = { global.playerbase = THIS.id } }
-            ENG = { add_to_array = { global.playerbase = THIS.id } }
-            HOL = { add_to_array = { global.playerbase = THIS.id } }
-            BEL = { add_to_array = { global.playerbase = THIS.id } }
-            LUX = { add_to_array = { global.playerbase = THIS.id } }
-            SWI = { add_to_array = { global.playerbase = THIS.id } }
-            POL = { add_to_array = { global.playerbase = THIS.id } }
-            YUG = { add_to_array = { global.playerbase = THIS.id } }
-            ITA = { add_to_array = { global.playerbase = THIS.id } }
-            BUL = { add_to_array = { global.playerbase = THIS.id } }
-            ROM = { add_to_array = { global.playerbase = THIS.id } }
-
-            SOV = { add_to_array = { global.playerbase = THIS.id } }
-            MON = { add_to_array = { global.playerbase = THIS.id } }
+            every_country = { country_event = host_vote.1 }
 
             random_country = {
                 add_player_countries = yes

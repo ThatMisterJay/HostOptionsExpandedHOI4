@@ -5,7 +5,7 @@ scripted_gui = {
 
 		window_name = "host_container"
 
-		visible = { ROOT = { TAG = global_event_target:game_host } }
+		visible = { is_ai = no }
 
 		effects = {
 			host_options_icon_click = {
@@ -24,7 +24,7 @@ scripted_gui = {
 		window_name = "host_options_container"
 
 		visible = {
-			ROOT = { TAG = global_event_target:game_host }
+			ROOT = { is_ai = no }
 			check_variable = { show_host_options > 0.0 }
 		}
 
@@ -41,11 +41,23 @@ scripted_gui = {
 						goto_state = PREV
 					}
 				}
-				save_global_event_target_as = selected_player
-				event_target:game_host = {
-					set_temp_variable = { show = 1 }
-					subtract_from_temp_variable = { show = show_player_options }
-					set_variable = { show_player_options = show }
+				if = {
+					limit = {
+						has_global_flag = vote_on_host
+						NOT = { has_country_flag = country_has_voted }
+					}
+					set_country_flag = country_has_voted
+					add_to_variable = { global.votes_for_@THIS = 1 }
+				}
+				add_to_variable = { votes_for_@THIS = 1 }
+				if = {
+					limit = { TAG = event_target:game_host }
+					save_global_event_target_as = selected_player
+					event_target:game_host = {
+						set_temp_variable = { show = 1 }
+						subtract_from_temp_variable = { show = show_player_options }
+						set_variable = { show_player_options = show }
+					}
 				}
 			}
 
@@ -53,16 +65,50 @@ scripted_gui = {
 			general_option_2_click = { add_threat = 5 }
 			general_option_3_click = { add_threat = -1 }
 			general_option_4_click = { add_threat = -5 }
-
-			host_flag_click = {
-				event_target:game_host = {
-					capital_scope = {
-						ROOT = {
-							goto_state = PREV
-						}
-					}
+			general_option_5_click = { set_global_flag = scw_over }
+			general_option_6_click = { clr_global_flag = scw_over }
+			general_option_7_click = {
+				every_country = {
+					limit = { is_ai = yes }
+					add_ideas = AI_no_faction_joining
 				}
+				set_global_flag = no_ai_faction_joining
 			}
+			general_option_8_click = {
+				every_country = {
+					limit = { is_ai = yes }
+					remove_ideas = AI_no_faction_joining
+				}
+				clr_global_flag = no_ai_faction_joining
+			}
+			general_option_20_click = { add_player_countries = yes }
+		}
+
+		triggers = {
+			country_options_title_secondary_visible = { TAG = event_target:game_host }
+			country_options_title_visible = { TAG = event_target:game_host }
+			general_options_title_visible = { TAG = event_target:game_host }
+			general_option_1_visible = { TAG = event_target:game_host }
+			general_option_2_visible = { TAG = event_target:game_host }
+			general_option_3_visible = { TAG = event_target:game_host }
+			general_option_4_visible = { TAG = event_target:game_host }
+			general_option_5_visible = {
+				NOT = { has_global_flag = scw_over }
+				TAG = event_target:game_host
+			}
+			general_option_6_visible = {
+				has_global_flag = scw_over
+				TAG = event_target:game_host
+			}
+			general_option_7_visible = {
+				NOT = { has_global_flag = no_ai_faction_joining }
+				TAG = event_target:game_host
+			}
+			general_option_8_visible = {
+				has_global_flag = no_ai_faction_joining
+				TAG = event_target:game_host
+			}
+			general_option_20_visible = { TAG = event_target:game_host }
 		}
 
 		dynamic_lists = {
@@ -235,45 +281,16 @@ scripted_gui = {
 				}
 			}
 
-			player_flag_selected_country_to_switch_to_right_click = {
-				clear_global_event_target = country_to_switch_to
-			}
+			player_flag_selected_country_to_switch_right_click = { clear_global_event_target = country_to_switch }
+
+			player_flag_selected_country_to_switch_to_right_click = { clear_global_event_target = country_to_switch_to }
 
 			player_flag_selected_country_to_switch_to_click = {
 				set_temp_variable = { show = 1 }
 				subtract_from_temp_variable = { show = show_switch_options }
 				set_variable = { show_switch_options = show }
 			}
-		}
-
-		properties = {
-			player_flag_selected_country_to_switch = { image = "[country_to_switch.GetFlag]" }
-			player_flag_selected_country_to_switch_to = { image = "[country_to_switch_to.GetFlag]" }
-		}
-	}
-
-	country_switcher = {
-		context_type = player_context
-
-		window_name = "country_switcher_country_to_switch_to_container"
-
-		visible = {
-			any_country = {
-				OR = {
-					TAG = event_target:country_to_switch
-					TAG = event_target:country_to_switch_to
-				}
-			}
-			ROOT = { TAG = global_event_target:game_host }
-			check_variable = { show_switch_options > 0.0 }
-		}
-
-		effects = {
-			player_flag_ai_click = {
-				log = "test"
-				save_global_event_target_as = country_to_switch_to
-				GER = { add_political_power = 5 }
-			}
+			player_flag_ai_click = { save_global_event_target_as = country_to_switch_to }
 		}
 
 		dynamic_lists = {
@@ -285,6 +302,8 @@ scripted_gui = {
 		}
 
 		properties = {
+			player_flag_selected_country_to_switch = { image = "[country_to_switch.GetFlag]" }
+			player_flag_selected_country_to_switch_to = { image = "[country_to_switch_to.GetFlag]" }
 			player_flag_ai = { image = "[THIS.GetFlag]" }
 		}
 	}

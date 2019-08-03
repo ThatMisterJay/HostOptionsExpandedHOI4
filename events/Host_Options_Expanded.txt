@@ -295,36 +295,89 @@ country_event = {
 	}
 }
 
+add_namespace = host_vote
+
+#Vote to decide host
 country_event = {
-	id = switching_countries.3
-	hidden = yes
+	id = host_vote.1
+	title = host_vote.1.t
+	desc = host_vote.1.d
+
 	is_triggered_only = yes
 
+	immediate = {
+		clr_global_flag = vote_for_new_host_succeeded
+		clr_global_flag = set_global_flag = vote_for_new_host_failed
+		clr_country_flag = country_has_voted
+		clear_global_event_target = current_highest_vote_holder
+
+		set_global_flag = vote_on_host
+		set_variable = { global.votes_for_@THIS = 0 }
+
+		hidden_effect = { country_event = { id = host_vote.2 days = 10 } }
+	}
+
 	option = {
-		clear_global_event_target = country_to_switch
-		clear_global_event_target = country_to_switch_to
+		name = host_vote.1.a
 	}
 }
 
+#Results of host vote
 country_event = {
-	id = switching_countries.4
-	hidden = yes
+	id = host_vote.2
+	title = host_vote.2.t
+
 	is_triggered_only = yes
 
-	option = {
-		GER = { save_global_event_target_as = country_to_switch_to }
-	}
-}
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = { is_ai = no }
+				if = {
+					limit = {
+						OR = {
+							NOT = { has_variable = current_highest_vote }
+							check_variable = { global.votes_for_@THIS > current_highest_vote }
+						}
+					}
+					set_temp_variable = { current_highest_vote = global.votes_for_@THIS }
+					save_global_event_target_as = current_highest_vote_holder
+				}
+			}
 
-country_event = {
-	id = switching_countries.5
-	hidden = yes
-	is_triggered_only = yes
+			set_temp_variable = { vote_total = global.playerbase^num }
+			divide_variable = { current_highest_vote = vote_total }
+			if = {
+				limit = { check_variable = { current_highest_vote > 0.8 } }
 
-	option = {
-		if = {
-			limit = { event_target:country_to_switch_to = { TAG = GER } }
-			GER = { add_political_power = 5 }
+				set_global_flag = vote_for_new_host_succeeded
+			}
+			else = {
+				set_global_flag = vote_for_new_host_failed
+			}
 		}
+	}
+
+	desc = {
+		text = host_vote.2.d.succeed
+		trigger = { any_country = { has_country_flag = vote_for_new_host_succeeded } }
+	}
+	desc = {
+		text = host_vote.2.d.fail
+		trigger = { any_country = { has_country_flag = vote_for_new_host_failed } }
+	}
+
+	option = {
+		name = host_vote.2.a
+		hidden_effect = {
+			if = {
+				limit = {
+					has_global_flag = vote_for_new_host_failed
+					NOT = { any_country = { TAG = event_target:game_host } }
+				}
+				country_event = { id = host_vote.1 days = 3 }
+			}
+		}
+		event_target:current_highest_vote_holder = { save_global_event_target_as = game_host }
 	}
 }
