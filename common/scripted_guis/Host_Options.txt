@@ -270,6 +270,7 @@ scripted_gui = {
 
 		effects = {
 			player_flag_ai_click = {
+				log = "test"
 				save_global_event_target_as = country_to_switch_to
 				GER = { add_political_power = 5 }
 			}
