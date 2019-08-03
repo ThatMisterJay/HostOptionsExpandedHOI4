@@ -1,17 +1,27 @@
 add_namespace = Host_Options_Expanded_Setup
-
+add_namespace = logging_events
 #Logging purposes
 country_event = {
-	id = Host_Options_Expanded_Setup.1
-	title = Host_Options_Expanded_Setup.1.t
-	desc = Host_Options_Expanded_Setup.1.d
+	id = logging_events.1
 
 	is_triggered_only = yes
 
 	option = {
-		name = Host_Options_Expanded_Setup.1.a
 		for_each_scope_loop = {
 		    array = global.playerbase
+
+			log = "[?THIS.GetName]"
+		}
+	}
+}
+country_event = {
+	id = logging_events.2
+
+	is_triggered_only = yes
+
+	option = {
+		for_each_scope_loop = {
+		    array = global.fascist_countries_array
 
 			log = "[?THIS.GetName]"
 		}
@@ -288,6 +298,9 @@ country_event = {
 			change_tag_from = event_target:country_to_switch
 		}
 
+		remove_from_array = { global.playerbase = event_target:country_to_switch }
+		add_player_countries = yes
+
 		clear_global_event_target = country_to_switch
 		clear_global_event_target = country_to_switch_to
 		clr_global_flag = confirm_country_switch_host
@@ -307,7 +320,7 @@ country_event = {
 
 	immediate = {
 		clr_global_flag = vote_for_new_host_succeeded
-		clr_global_flag = set_global_flag = vote_for_new_host_failed
+		clr_global_flag = vote_for_new_host_failed
 		clr_country_flag = country_has_voted
 		clear_global_event_target = current_highest_vote_holder
 

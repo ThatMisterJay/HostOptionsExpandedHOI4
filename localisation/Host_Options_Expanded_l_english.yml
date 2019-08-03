@@ -50,7 +50,7 @@
     host_vote.1.a:0 "I will vote in the menu on the lower right hand side!"
 
     host_vote.2.t:0 "Vote on a New Host: Results"
-    host_vote.2.d.succeed:0 "The results are in: The new host has been chosen, and is [game_host.GetNameDefCap]!"
+    host_vote.2.d.succeed:0 "The results are in: The new host has been chosen, and is [current_highest_vote_holder.GetNameDefCap]!"
     host_vote.2.d.fail:0 "The results are in: No host has been chosen. In 3 days, a new vote will occur."
     host_vote.2.a:0 "Here we go."
 
