@@ -296,9 +296,11 @@ country_event = {
 
 		event_target:country_to_switch_to = {
 			change_tag_from = event_target:country_to_switch
+			clr_country_flag = no_player_anymore
 		}
+		event_target:country_to_switch = { set_country_flag = no_player_anymore }
 
-		remove_from_array = { global.playerbase = event_target:country_to_switch }
+		remove_from_array = { array = global.playerbase value = event_target:country_to_switch }
 		add_player_countries = yes
 
 		clear_global_event_target = country_to_switch
