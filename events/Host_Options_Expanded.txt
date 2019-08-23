@@ -273,12 +273,22 @@ country_event = {
 				country_event = switching_countries.2
 			}
 		}
+
+		if = {
+			limit = {
+				OR = {
+					event_target:country_to_switch = { has_global_flag = country_does_not_want_switch }
+					event_target:game_host = { has_global_flag = country_does_not_want_switch }
+				}
+			}
+		}
 	}
 
 	#No switching
 	option = {
 		name = switching_countries.1.b
 		ai_chance = { factor = 0 }
+		set_country_flag = country_does_not_want_switch
 	}
 }
 
@@ -307,6 +317,20 @@ country_event = {
 		clear_global_event_target = country_to_switch_to
 		clr_global_flag = confirm_country_switch_host
 		clr_global_flag = confirm_country_switch_player
+	}
+}
+
+#Switching countries, Somebody said no
+country_event = {
+	id = switching_countries.3
+	title = switching_countries.3.t
+	desc = switching_countries.3.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = switching_countries.3.a
+		ai_chance = { factor = 0 }
 	}
 }
 
