@@ -3,14 +3,14 @@ on_actions = {
 		effect = {
 			set_global_flag = creating_playerbase
 
-            FRA = { add_to_array = global.playerbase }
-
             #Setting Host
             every_country = { country_event = host_vote.1 }
 
             random_country = {
                 add_player_countries = yes
             }
+
+            GER = { save_global_event_target_as = game_host }
 		}
 	}
 }

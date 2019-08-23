@@ -35,42 +35,42 @@ sort_array_by_factions = {
 	for_each_scope_loop = {
 		array = global.playerbase
 
-		This = {
+		THIS = {
 			if = {
 				limit = { is_ching_chong = yes }
 
 				#Add chinese country to array
-				add_to_array = { global.chinese_countries_array = This.id }
+				add_to_array = { global.chinese_countries_array = THIS.id }
 			}
 			#If government is democratic
 			else_if = {
 				limit = { is_allied_with_allies = yes }
 
 				#Add democratic country to array
-				add_to_array = { global.democratic_countries_array = This.id }
+				add_to_array = { global.democratic_countries_array = THIS.id }
 			}
 			# If government is gommie
 			else_if = {
 				limit = { is_allied_with_comintern = yes }
 
 				#Add gommie country to array
-				add_to_array = { global.communist_countries_array = This.id }
+				add_to_array = { global.communist_countries_array = THIS.id }
 			}
 			# If government is nezi
 			else_if = {
 				limit = { is_allied_with_axis = yes }
 
 				#Add fascist country to array
-				add_to_array = { global.fascist_countries_array = This.id }
+				add_to_array = { global.fascist_countries_array = THIS.id }
 			}
 			# If government is neutral
 			else = {
 				limit = { is_neutral = yes }
 
 				#Add neutral country to array
-				add_to_array = { global.neutral_countries_array = This.id }
+				add_to_array = { global.neutral_countries_array = THIS.id }
 			}
-			log = "[?This.GetName]"
+			log = "[?THIS.GetName]"
 		}
 		clear_variable = array_country
 	}

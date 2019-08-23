@@ -49,9 +49,9 @@ scripted_gui = {
 					set_country_flag = country_has_voted
 					add_to_variable = { global.votes_for_@THIS = 1 }
 				}
-				add_to_variable = { votes_for_@THIS = 1 }
 				if = {
 					limit = { TAG = event_target:game_host }
+					add_political_power = 50
 					save_global_event_target_as = selected_player
 					event_target:game_host = {
 						set_temp_variable = { show = 1 }
