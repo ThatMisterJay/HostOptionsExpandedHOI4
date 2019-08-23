@@ -5,10 +5,7 @@ add_player_countries = {
 	every_country = {
 		if = {
 			limit = {
-				OR = {
-					is_ai = no
-					TAG = FRA
-				}
+				is_ai = no
 				NOT = { is_in_array = { global.playerbase = THIS.id } }
 				NOT = { has_country_flag = no_player_anymore }
 			}

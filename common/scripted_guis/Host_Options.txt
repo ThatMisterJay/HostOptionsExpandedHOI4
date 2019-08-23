@@ -50,8 +50,7 @@ scripted_gui = {
 					add_to_variable = { global.votes_for_@THIS = 1 }
 				}
 				if = {
-					limit = { TAG = event_target:game_host }
-					add_political_power = 50
+					limit = { ROOT = { TAG = event_target:game_host } }
 					save_global_event_target_as = selected_player
 					event_target:game_host = {
 						set_temp_variable = { show = 1 }
@@ -85,30 +84,30 @@ scripted_gui = {
 		}
 
 		triggers = {
-			country_options_title_secondary_visible = { TAG = event_target:game_host }
-			country_options_title_visible = { TAG = event_target:game_host }
-			general_options_title_visible = { TAG = event_target:game_host }
-			general_option_1_visible = { TAG = event_target:game_host }
-			general_option_2_visible = { TAG = event_target:game_host }
-			general_option_3_visible = { TAG = event_target:game_host }
-			general_option_4_visible = { TAG = event_target:game_host }
+			country_options_title_secondary_visible = { ROOT = { TAG = event_target:game_host } }
+			country_options_title_visible = { ROOT = { TAG = event_target:game_host } }
+			general_options_title_visible = { ROOT = { TAG = event_target:game_host } }
+			general_option_1_visible = { ROOT = { TAG = event_target:game_host } }
+			general_option_2_visible = { ROOT = { TAG = event_target:game_host } }
+			general_option_3_visible = { ROOT = { TAG = event_target:game_host } }
+			general_option_4_visible = { ROOT = { TAG = event_target:game_host } }
 			general_option_5_visible = {
 				NOT = { has_global_flag = scw_over }
-				TAG = event_target:game_host
+				ROOT = { TAG = event_target:game_host }
 			}
 			general_option_6_visible = {
 				has_global_flag = scw_over
-				TAG = event_target:game_host
+				ROOT = { TAG = event_target:game_host }
 			}
 			general_option_7_visible = {
 				NOT = { has_global_flag = no_ai_faction_joining }
-				TAG = event_target:game_host
+				ROOT = { TAG = event_target:game_host }
 			}
 			general_option_8_visible = {
 				has_global_flag = no_ai_faction_joining
-				TAG = event_target:game_host
+				ROOT = { TAG = event_target:game_host }
 			}
-			general_option_20_visible = { TAG = event_target:game_host }
+			general_option_20_visible = { ROOT = { TAG = event_target:game_host } }
 		}
 
 		dynamic_lists = {
@@ -276,8 +275,14 @@ scripted_gui = {
 						any_country = { TAG = event_target:country_to_switch }
 						any_country = { TAG = event_target:country_to_switch_to }
 					}
-					event_target:game_host = { country_event = switching_countries.1 }
-					event_target:country_to_switch = { country_event = switching_countries.1 }
+					event_target:game_host = {
+						country_event = switching_countries.1
+						clr_country_flag = country_does_not_want_switch
+					}
+					event_target:country_to_switch = {
+						country_event = switching_countries.1
+						clr_country_flag = country_does_not_want_switch
+					}
 				}
 			}
 

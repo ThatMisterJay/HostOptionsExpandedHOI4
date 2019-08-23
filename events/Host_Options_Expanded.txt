@@ -393,6 +393,7 @@ country_event = {
 				country_event = { id = host_vote.1 days = 3 }
 			}
 		}
+		clear_global_event_target = game_host
 		event_target:current_highest_vote_holder = { save_global_event_target_as = game_host }
 	}
 }

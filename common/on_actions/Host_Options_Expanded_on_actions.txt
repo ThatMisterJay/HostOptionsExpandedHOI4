@@ -9,8 +9,6 @@ on_actions = {
             random_country = {
                 add_player_countries = yes
             }
-
-            GER = { save_global_event_target_as = game_host }
 		}
 	}
 }
