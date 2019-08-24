@@ -25,9 +25,9 @@ guiTypes = {
 
 	containerWindowType = {
 		name = "host_options_container"
-		position = { x = -550 y = -600 }
-		size = { width=1200 height=1200 }
-		Orientation = CENTER
+		position = { x = 0 y = 5% }
+		size = { width=1200 height=90% }
+		Orientation = UPPER_LEFT
 
 		fade_time = 300
 		fade_type = linear
@@ -48,25 +48,20 @@ guiTypes = {
 			position = {x=500 y=30}
 			font = "hoi_36header"
 			text = "Host Options"
-			maxWidth = 250
-			maxHeight = 50
-			format = left
+			format = center
 		}
 
 		instantTextboxType = {
 			name = "host_country"
-			position = {x=-50 y=-505}
+			position = {x=500 y=100}
 			font = "hoi_20b"
 			text = "Host Country"
-			maxWidth = 100
-			maxHeight = 200
-			format = left
-			orientation = center
+			format = center
 		}
 
 		instantTextboxType = {
 			name = "host_name"
-			position = { x = 495 y = 190 }
+			position = { x = 500 y = 190 }
 			font = "hoi_18mbs"
 			format = centre
 			text = "[game_host.GetNameDefCap]"
@@ -74,16 +69,16 @@ guiTypes = {
 
 		buttonType = {
 			name = "host_flag"
-			position = { x = -45 y = -480 }
+			position = { x = 560 y = 125 }
 			quadTextureSprite ="GFX_shield_medium"
-			orientation = "CENTER"
+			orientation = "UPPER_LEFT"
 		}
 
 		iconType = {
 			name = "host_flag_border"
 			quadTextureSprite = "GFX_large_flag_frame"
-			position = { x = -50 y = -480 }
-			orientation = "CENTER"
+			position = { x = 555 y = 125 }
+			orientation = "UPPER_LEFT"
 			alwaystransparent = yes
 		}
 
@@ -127,103 +122,96 @@ guiTypes = {
 			text = "Neutral"
 		}
 
-		instantTextboxType = {
-			name = "country_options_title"
-			position = { x = 320 y = 850 }
-			font = "hoi_20b"
-			format = center
-			text = "Country Options"
-		}
-
-		instantTextboxType = {
-			name = "country_options_title_secondary"
-			position = { x = 320 y = 880 }
-			font = "hoi_18mbs"
-			maxwidth = 300
-			format = left
-			text = "Click on a flag to get started!"
-		}
-
 		### GENERAL OPTIONS ###
 
 			instantTextboxType = {
 				name = "general_options_title"
-				position = { x = 760 y = 850 }
+				position = { x = -430 y = -370 }
 				font = "hoi_20b"
 				format = centre
 				text = "General Options"
+				orientation = LOWER_RIGHT
 			}
 
 			buttonType = {
 				name = "general_option_1"
-				position = { x = 700 y = 878 }
+				position = { x = -500 y = -329 }
 				spriteType = "GFX_HOE_button"
 				font = "hoi_16mbs"
 				text = "Add 1 tension"
+				orientation = LOWER_RIGHT
 			}
 
 			buttonType = {
 				name = "general_option_2"
-				position = { x = 700 y = 915 }
+				position = { x = -500 y = -294 } #+35y
 				spriteType = "GFX_HOE_button"
 				font = "hoi_16mbs"
 				text = "Add 5 tension"
+				orientation = LOWER_RIGHT
 			}
 
 			buttonType = {
 				name = "general_option_3"
-				position = { x = 700 y = 952 }
+				position = { x = -500 y = -259 }
 				spriteType = "GFX_HOE_button"
 				font = "hoi_16mbs"
 				text = "Add -1 tension"
+				orientation = LOWER_RIGHT
 			}
 
 			buttonType = {
 				name = "general_option_4"
-				position = { x = 700 y = 989 }
+				position = { x = -500 y = -224 }
 				spriteType = "GFX_HOE_button"
 				font = "hoi_16mbs"
 				text = "Add -5 tension"
+				orientation = LOWER_RIGHT
 			}
 
 			buttonType = {
 				name = "general_option_5"
-				position = { x = 700 y = 1026 }
+				position = { x = -500 y = -189 }
 				spriteType = "GFX_HOE_button"
 				font = "hoi_16mbs"
 				text = "Spanish Civil War Off"
+				orientation = LOWER_RIGHT
 			}
 
 			buttonType = {
 				name = "general_option_6"
-				position = { x = 700 y = 1026 }
+				position = { x = -500 y = -189 }
 				spriteType = "GFX_HOE_button"
 				font = "hoi_16mbs"
 				text = "Spanish Civil War On"
+				orientation = LOWER_RIGHT
 			}
 
 			buttonType = {
 				name = "general_option_7"
-				position = { x = 700 y = 1063 }
+				position = { x = -500 y = -154 }
 				spriteType = "GFX_HOE_button"
 				font = "hoi_16mbs"
 				text = "AI Faction Joining Off"
+				orientation = LOWER_RIGHT
 			}
 
 			buttonType = {
 				name = "general_option_8"
-				position = { x = 700 y = 1063 }
+				position = { x = -500 y = -154 }
 				spriteType = "GFX_HOE_button"
 				font = "hoi_16mbs"
 				text = "AI Faction Joining On"
+				orientation = LOWER_RIGHT
 			}
 
 			buttonType = {
 				name = "general_option_20"
-				position = { x = 880 y = 878 }
+				position = { x = -320 y = -329 }#+180x
 				spriteType = "GFX_HOE_button"
 				font = "hoi_16mbs"
 				text = "Refresh Teams"
+				orientation = LOWER_RIGHT
 			}
 
 
@@ -325,12 +313,30 @@ guiTypes = {
 				add_horizontal = yes
 			}
 		}
+
+		instantTextboxType = {
+			name = "country_options_title"
+			position = { x = 300 y = -370 }
+			font = "hoi_20b"
+			format = center
+			orientation = LOWER_LEFT
+			text = "Country Options"
+		}
+
+		instantTextboxType = {
+			name = "country_options_title_secondary"
+			position = { x = 300 y = -230 }
+			font = "hoi_18mbs"
+			format = center
+			orientation = LOWER_LEFT
+			text = "Click on a flag to get started!"
+		}
 	}
 
 	containerWindowType = {
 		name = "player_options_container"
-		position = { x = 904 y = 1000 }
-		Orientation = UPPER_LEFT
+		position = { x = 150 y = -382 }
+		Orientation = LOWER_LEFT
 
 		iconType = {
 			name = "player_flag"
@@ -396,8 +402,8 @@ guiTypes = {
 
 	containerWindowType = {
 		name = "country_switcher_container"
-		position = { x = 1015 y = 880 }
-		Orientation = UPPER_LEFT
+		position = { x = 260 y = -520 }
+		Orientation = LOWER_LEFT
 
 		buttonType = {
 			name = "player_flag_selected_country_to_switch"
@@ -439,9 +445,10 @@ guiTypes = {
 
 		containerWindowType = {
 			name = "ai_countries_list"
-			position = { x = 822 y = -300 }
+			position = { x = 930 y = -34 }
 			size = { width = 500 height = 500 }
 			verticalScrollbar = "right_vertical_slider"
+			orientation = CENTER
 			background = {
 				name = "Background"
 				quadTextureSprite ="GFX_tiled_bg"
