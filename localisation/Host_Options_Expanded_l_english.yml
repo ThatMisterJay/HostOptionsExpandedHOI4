@@ -1,6 +1,6 @@
 ﻿l_english:
     HOST_TOOLTIP:0 "§GOptions for Hosts§!"
-
+ 
 
     #Events
     player_permission.1.t:0 "Permission asked from [selected_player.GetName]"
