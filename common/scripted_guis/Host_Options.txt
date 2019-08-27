@@ -81,87 +81,8 @@ scripted_gui = {
 				clr_global_flag = no_ai_faction_joining
 			}
 			general_option_20_click = { add_player_countries = yes }
-		}
 
-		triggers = {
-			country_options_title_secondary_visible = { ROOT = { TAG = event_target:game_host } }
-			country_options_title_visible = { ROOT = { TAG = event_target:game_host } }
-			general_options_title_visible = { ROOT = { TAG = event_target:game_host } }
-			general_option_1_visible = { ROOT = { TAG = event_target:game_host } }
-			general_option_2_visible = { ROOT = { TAG = event_target:game_host } }
-			general_option_3_visible = { ROOT = { TAG = event_target:game_host } }
-			general_option_4_visible = { ROOT = { TAG = event_target:game_host } }
-			general_option_5_visible = {
-				NOT = { has_global_flag = scw_over }
-				ROOT = { TAG = event_target:game_host }
-			}
-			general_option_6_visible = {
-				has_global_flag = scw_over
-				ROOT = { TAG = event_target:game_host }
-			}
-			general_option_7_visible = {
-				NOT = { has_global_flag = no_ai_faction_joining }
-				ROOT = { TAG = event_target:game_host }
-			}
-			general_option_8_visible = {
-				has_global_flag = no_ai_faction_joining
-				ROOT = { TAG = event_target:game_host }
-			}
-			general_option_20_visible = { ROOT = { TAG = event_target:game_host } }
-		}
 
-		dynamic_lists = {
-			chinese_countries_player_list_gridbox = {
-				array = global.chinese_countries_array
-				entry_container = chinese_countries_player_list_entry
-				change_scope = yes
-			}
-			democratic_player_list_gridbox = {
-				array = global.democratic_countries_array
-				entry_container = democratic_player_list_entry
-				change_scope = yes
-			}
-			communist_player_list_gridbox = {
-				array = global.communist_countries_array
-				entry_container = communism_player_list_entry
-				change_scope = yes
-			}
-			fascism_player_list_gridbox = {
-				array = global.fascist_countries_array
-				entry_container = fascism_player_list_entry
-				change_scope = yes
-			}
-			neutral_player_list_gridbox = {
-				array = global.neutral_countries_array
-				entry_container = neutral_player_list_entry
-				change_scope = yes
-			}
-		}
-
-		properties = {
-			host_flag = {
-				image = "[game_host.GetFlag]"
-			}
-			player_flag = {
-				image = "[This.GetFlag]"
-			}
-		}
-	}
-
-	player_options_expanded = {
-		context_type = player_context
-
-		window_name = "player_options_container"
-
-		visible = {
-			ROOT = { TAG = global_event_target:game_host }
-			check_variable = { show_player_options > 0.0 }
-		}
-
-		effects = {
-			player_flag_click = {
-				#event_target:selected_player = { add_political_power = 5 }
-			}
 			option_1_click = {
 				event_target:selected_player = {
 					if = {
@@ -247,8 +168,105 @@ scripted_gui = {
 			}
 		}
 
+		triggers = {
+			country_options_title_secondary_visible = { ROOT = { TAG = event_target:game_host } }
+			country_options_title_visible = { ROOT = { TAG = event_target:game_host } }
+			general_options_title_visible = { ROOT = { TAG = event_target:game_host } }
+			general_option_1_visible = { ROOT = { TAG = event_target:game_host } }
+			general_option_2_visible = { ROOT = { TAG = event_target:game_host } }
+			general_option_3_visible = { ROOT = { TAG = event_target:game_host } }
+			general_option_4_visible = { ROOT = { TAG = event_target:game_host } }
+			general_option_5_visible = {
+				NOT = { has_global_flag = scw_over }
+				ROOT = { TAG = event_target:game_host }
+			}
+			general_option_6_visible = {
+				has_global_flag = scw_over
+				ROOT = { TAG = event_target:game_host }
+			}
+			general_option_7_visible = {
+				NOT = { has_global_flag = no_ai_faction_joining }
+				ROOT = { TAG = event_target:game_host }
+			}
+			general_option_8_visible = {
+				has_global_flag = no_ai_faction_joining
+				ROOT = { TAG = event_target:game_host }
+			}
+			general_option_20_visible = { ROOT = { TAG = event_target:game_host } }
+
+
+			option_1_visible = {
+				ROOT = { TAG = global_event_target:game_host }
+				check_variable = { show_player_options > 0.0 }
+			}
+			option_2_visible = {
+				ROOT = { TAG = global_event_target:game_host }
+				check_variable = { show_player_options > 0.0 }
+			}
+			option_3_visible = {
+				ROOT = { TAG = global_event_target:game_host }
+				check_variable = { show_player_options > 0.0 }
+			}
+			option_4_visible = {
+				ROOT = { TAG = global_event_target:game_host }
+				check_variable = { show_player_options > 0.0 }
+			}
+			option_5_visible = {
+				ROOT = { TAG = global_event_target:game_host }
+				check_variable = { show_player_options > 0.0 }
+			}
+			option_6_visible = {
+				ROOT = { TAG = global_event_target:game_host }
+				check_variable = { show_player_options > 0.0 }
+			}
+
+			selected_player_flag_visible = {
+				ROOT = { TAG = global_event_target:game_host }
+				check_variable = { show_player_options > 0.0 }
+			}
+
+			selected_player_flag_border_visible = {
+				ROOT = { TAG = global_event_target:game_host }
+				check_variable = { show_player_options > 0.0 }
+			}
+		}
+
+		dynamic_lists = {
+			chinese_countries_player_list_gridbox = {
+				array = global.chinese_countries_array
+				entry_container = chinese_countries_player_list_entry
+				change_scope = yes
+			}
+			democratic_player_list_gridbox = {
+				array = global.democratic_countries_array
+				entry_container = democratic_player_list_entry
+				change_scope = yes
+			}
+			communist_player_list_gridbox = {
+				array = global.communist_countries_array
+				entry_container = communism_player_list_entry
+				change_scope = yes
+			}
+			fascism_player_list_gridbox = {
+				array = global.fascist_countries_array
+				entry_container = fascism_player_list_entry
+				change_scope = yes
+			}
+			neutral_player_list_gridbox = {
+				array = global.neutral_countries_array
+				entry_container = neutral_player_list_entry
+				change_scope = yes
+			}
+		}
+
 		properties = {
-			player_flag = { image = "[selected_player.GetFlag]" }
+			host_flag = {
+				image = "[game_host.GetFlag]"
+			}
+			player_flag = {
+				image = "[This.GetFlag]"
+			}
+			selected_player_flag = { image = "[selected_player.GetFlag]" }
 		}
 	}
 

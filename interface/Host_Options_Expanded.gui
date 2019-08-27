@@ -331,37 +331,37 @@ guiTypes = {
 			orientation = LOWER_LEFT
 			text = "Click on a flag to get started!"
 		}
-	}
-
-	containerWindowType = {
-		name = "player_options_container"
-		position = { x = 150 y = -382 }
-		Orientation = LOWER_LEFT
 
 		iconType = {
-			name = "player_flag"
-			position = { x = 0 y = 0 }
+			name = "selected_player_flag"
+			position = { x = 145 y = -331 }
+			orientation = LOWER_LEFT
 			spriteType = "GFX_shield_medium"
 		}
 
 		iconType = {
-			name = "player_flag_border"
+			name = "selected_player_flag_border"
 			quadTextureSprite = "GFX_large_flag_frame"
-			position = { x = -5 y = 0 }
+			position = { x = 140 y = -331 }
+			orientation = LOWER_LEFT
 			alwaystransparent = yes
 		}
 
+
+
 		buttonType = {
 			name = "option_1"
-			position = { x = 100 y = -2 }
+			position = { x = 250 y = -332 }
 			spriteType = "GFX_theater_group_assign_btn"
 			font = "hoi_20b"
+			orientation = LOWER_LEFT
 			text = "Move to Chinese Faction"
 		}
 
 		buttonType = {
 			name = "option_2"
-			position = { x = 100 y = 33 }
+			position = { x = 250 y = -299 }
+			orientation = LOWER_LEFT
 			spriteType = "GFX_theater_group_assign_btn"
 			font = "hoi_20b"
 			text = "Move to Comintern"
@@ -369,7 +369,8 @@ guiTypes = {
 
 		buttonType = {
 			name = "option_3"
-			position = { x = 100 y = 68 }
+			position = { x = 250 y = -267 }
+			orientation = LOWER_LEFT
 			spriteType = "GFX_theater_group_assign_btn"
 			font = "hoi_20b"
 			text = "Move to Allies"
@@ -377,7 +378,8 @@ guiTypes = {
 
 		buttonType = {
 			name = "option_4"
-			position = { x = 100 y = 103 }
+			position = { x = 250 y = -235 }
+			orientation = LOWER_LEFT
 			spriteType = "GFX_theater_group_assign_btn"
 			font = "hoi_20b"
 			text = "Move to Axis"
@@ -385,7 +387,8 @@ guiTypes = {
 
 		buttonType = {
 			name = "option_5"
-			position = { x = 100 y = 138 }
+			position = { x = 250 y = -203 }
+			orientation = LOWER_LEFT
 			spriteType = "GFX_theater_group_assign_btn"
 			font = "hoi_20b"
 			text = "Move to Neutral"
@@ -393,7 +396,8 @@ guiTypes = {
 
 		buttonType = {
 			name = "option_6"
-			position = { x = 100 y = 173 }
+			position = { x = 250 y = -171 }
+			orientation = LOWER_LEFT
 			spriteType = "GFX_theater_group_assign_btn"
 			font = "hoi_20b"
 			text = "Select as Country to Move"
