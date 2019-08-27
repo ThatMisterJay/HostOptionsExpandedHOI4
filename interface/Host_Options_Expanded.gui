@@ -449,13 +449,14 @@ guiTypes = {
 
 	containerWindowType = {
 		name = "country_switcher_container"
-		position = { x = 260 y = -520 }
+		position = { x = 1190 y =-145% }
+		size = { width = 0 height = 100% }
 		Orientation = LOWER_LEFT
 
 		containerWindowType = {
 			name = "ai_countries_list"
-			position = { x = 930 y = -34 }
-			size = { width = 500 height = 500 }
+			position = { x = 0 y = 0 }
+			size = { width = 400 height = 90% }
 			verticalScrollbar = "right_vertical_slider"
 			orientation = CENTER
 			background = {
@@ -469,8 +470,8 @@ guiTypes = {
 				position = { x = 0 y = -308 }
 				size = { width = 90 height = 60 }
 				slotsize = { width = 90 height = 60 }
-				max_slots_vertical = 25
-				max_slots_horizontal = 5
+				max_slots_vertical = 50
+				max_slots_horizontal = 4
 			}
 		}
 	}
