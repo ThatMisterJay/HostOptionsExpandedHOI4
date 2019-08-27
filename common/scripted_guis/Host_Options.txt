@@ -166,6 +166,32 @@ scripted_gui = {
 			option_6_click = {
 				event_target:selected_player = { save_global_event_target_as = country_to_switch }
 			}
+			arrow_click = {
+				if = {
+					limit = {
+						any_country = { TAG = event_target:country_to_switch }
+						any_country = { TAG = event_target:country_to_switch_to }
+					}
+					event_target:game_host = {
+						country_event = switching_countries.1
+						clr_country_flag = country_does_not_want_switch
+					}
+					event_target:country_to_switch = {
+						country_event = switching_countries.1
+						clr_country_flag = country_does_not_want_switch
+					}
+				}
+			}
+
+			player_flag_selected_country_to_switch_right_click = { clear_global_event_target = country_to_switch }
+
+			player_flag_selected_country_to_switch_to_right_click = { clear_global_event_target = country_to_switch_to }
+
+			player_flag_selected_country_to_switch_to_click = {
+				set_temp_variable = { show = 1 }
+				subtract_from_temp_variable = { show = show_switch_options }
+				set_variable = { show_switch_options = show }
+			}
 		}
 
 		triggers = {
@@ -229,6 +255,33 @@ scripted_gui = {
 				ROOT = { TAG = global_event_target:game_host }
 				check_variable = { show_player_options > 0.0 }
 			}
+
+			player_flag_selected_country_to_switch_visible = {
+				any_country = { TAG = event_target:country_to_switch }
+				ROOT = { TAG = global_event_target:game_host }
+				check_variable = { show_host_options > 0.0 }
+			}
+
+			player_flag_border_1_visible = {
+				any_country = { TAG = event_target:country_to_switch }
+				ROOT = { TAG = global_event_target:game_host }
+				check_variable = { show_host_options > 0.0 }
+			}
+			player_flag_selected_country_to_switch_to_visible = {
+				any_country = { TAG = event_target:country_to_switch }
+				ROOT = { TAG = global_event_target:game_host }
+				check_variable = { show_host_options > 0.0 }
+			}
+			player_flag_border_2_visible = {
+				any_country = { TAG = event_target:country_to_switch }
+				ROOT = { TAG = global_event_target:game_host }
+				check_variable = { show_host_options > 0.0 }
+			}
+			arrow_visible = {
+				any_country = { TAG = event_target:country_to_switch }
+				ROOT = { TAG = global_event_target:game_host }
+				check_variable = { show_host_options > 0.0 }
+			}
 		}
 
 		dynamic_lists = {
@@ -260,13 +313,11 @@ scripted_gui = {
 		}
 
 		properties = {
-			host_flag = {
-				image = "[game_host.GetFlag]"
-			}
-			player_flag = {
-				image = "[This.GetFlag]"
-			}
+			host_flag = { image = "[game_host.GetFlag]" }
+			player_flag = { image = "[This.GetFlag]" }
 			selected_player_flag = { image = "[selected_player.GetFlag]" }
+			player_flag_selected_country_to_switch = { image = "[country_to_switch.GetFlag]" }
+			player_flag_selected_country_to_switch_to = { image = "[country_to_switch_to.GetFlag]" }
 		}
 	}
 
@@ -287,32 +338,6 @@ scripted_gui = {
 		}
 
 		effects = {
-			arrow_click = {
-				if = {
-					limit = {
-						any_country = { TAG = event_target:country_to_switch }
-						any_country = { TAG = event_target:country_to_switch_to }
-					}
-					event_target:game_host = {
-						country_event = switching_countries.1
-						clr_country_flag = country_does_not_want_switch
-					}
-					event_target:country_to_switch = {
-						country_event = switching_countries.1
-						clr_country_flag = country_does_not_want_switch
-					}
-				}
-			}
-
-			player_flag_selected_country_to_switch_right_click = { clear_global_event_target = country_to_switch }
-
-			player_flag_selected_country_to_switch_to_right_click = { clear_global_event_target = country_to_switch_to }
-
-			player_flag_selected_country_to_switch_to_click = {
-				set_temp_variable = { show = 1 }
-				subtract_from_temp_variable = { show = show_switch_options }
-				set_variable = { show_switch_options = show }
-			}
 			player_flag_ai_click = { save_global_event_target_as = country_to_switch_to }
 		}
 
@@ -325,8 +350,6 @@ scripted_gui = {
 		}
 
 		properties = {
-			player_flag_selected_country_to_switch = { image = "[country_to_switch.GetFlag]" }
-			player_flag_selected_country_to_switch_to = { image = "[country_to_switch_to.GetFlag]" }
 			player_flag_ai = { image = "[THIS.GetFlag]" }
 		}
 	}

@@ -402,16 +402,11 @@ guiTypes = {
 			font = "hoi_20b"
 			text = "Select as Country to Move"
 		}
-	}
-
-	containerWindowType = {
-		name = "country_switcher_container"
-		position = { x = 260 y = -520 }
-		Orientation = LOWER_LEFT
 
 		buttonType = {
 			name = "player_flag_selected_country_to_switch"
-			position = { x = 0 y = 0 }
+			position = { x = 260 y = -450 }
+			orientation = LOWER_LEFT
 			spriteType = "GFX_shield_medium"
 
 			pdx_tooltip = "HOE_UNSET_COUNTRY_TT"
@@ -420,13 +415,15 @@ guiTypes = {
 		iconType = {
 			name = "player_flag_border_1"
 			quadTextureSprite = "GFX_large_flag_frame"
-			position = { x = -5 y = 0 }
+			position = { x = 255 y = -450 }
+			orientation = LOWER_LEFT
 			alwaystransparent = yes
 		}
 
 		buttonType = {
 			name = "player_flag_selected_country_to_switch_to"
-			position = { x = 200 y = 0 }
+			position = { x = 460 y = -450 }
+			orientation = LOWER_LEFT
 			spriteType = "GFX_shield_medium"
 
 			pdx_tooltip = "HOE_SET_AND_UNSET_COUNTRY_TT"
@@ -435,17 +432,25 @@ guiTypes = {
 		iconType = {
 			name = "player_flag_border_2"
 			quadTextureSprite = "GFX_large_flag_frame"
-			position = { x = 195 y = 0 }
+			position = { x = 455 y = -450 }
+			orientation = LOWER_LEFT
 			alwaystransparent = yes
 		}
 
 		buttonType = {
 			name = "arrow"
-			position = { x = 125 y = 13 }
+			position = { x = 385 y = -437 }
+			orientation = LOWER_LEFT
 			spriteType = "GFX_floating_arrows"
 			frame = 2
 			pdx_tooltip = "CLICK_ME_TT"
 		}
+	}
+
+	containerWindowType = {
+		name = "country_switcher_container"
+		position = { x = 260 y = -520 }
+		Orientation = LOWER_LEFT
 
 		containerWindowType = {
 			name = "ai_countries_list"
