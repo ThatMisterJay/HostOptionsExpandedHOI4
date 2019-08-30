@@ -342,7 +342,10 @@ country_event = {
 		clr_global_flag = vote_for_new_host_succeeded
 		clr_global_flag = vote_for_new_host_failed
 		clr_country_flag = country_has_voted
-		clear_global_event_target = current_highest_vote_holder
+		if = {
+			limit = { has_event_target = current_highest_vote_holder }
+			clear_global_event_target = current_highest_vote_holder
+		}
 
 		set_global_flag = vote_on_host
 		set_variable = { global.votes_for_@THIS = 0 }
