@@ -15,10 +15,6 @@ add_player_countries = {
 				country_event = player_permission.2
 			}
 		}
-		if = {
-			limit = { NOT = { is_in_array = { global.countrybase = THIS.id } } }
-			add_to_array = { global.countrybase = THIS.id }
-		}
 	}
 	sort_array_by_factions = yes
 }

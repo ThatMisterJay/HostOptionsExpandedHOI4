@@ -4,7 +4,10 @@ on_actions = {
 			set_global_flag = creating_playerbase
 
             #Setting Host
-            every_country = { country_event = host_vote.1 }
+            every_country = {
+                country_event = host_vote.1
+    			add_to_array = { global.countrybase = THIS.id }
+            }
 
             random_country = {
                 add_player_countries = yes
