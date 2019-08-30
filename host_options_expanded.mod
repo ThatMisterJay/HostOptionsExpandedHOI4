@@ -1,7 +1,7 @@
 name="Host Options Expanded"
-path="mod/testmod/"
+path="mod/HostOptionsExpanded/"
 tags={
 	"Balance"
 }
-remote_file_id="1824056392"
 supported_version="1.7.*"
+remote_file_id="1849173829"
