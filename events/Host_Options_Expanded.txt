@@ -275,15 +275,6 @@ country_event = {
 				country_event = switching_countries.2
 			}
 		}
-
-		if = {
-			limit = {
-				OR = {
-					event_target:country_to_switch = { has_global_flag = country_does_not_want_switch }
-					event_target:game_host = { has_global_flag = country_does_not_want_switch }
-				}
-			}
-		}
 	}
 
 	#No switching
@@ -313,7 +304,8 @@ country_event = {
 		event_target:country_to_switch = { set_country_flag = no_player_anymore }
 
 		remove_from_array = { array = global.playerbase value = event_target:country_to_switch }
-		add_player_countries = yes
+		add_to_array = { array = global.playerbase value = event_target:country_to_switch_to }
+		sort_array_by_factions = yes
 
 		clear_global_event_target = country_to_switch
 		clear_global_event_target = country_to_switch_to
@@ -401,11 +393,11 @@ country_event = {
 
 	desc = {
 		text = host_vote.2.d.succeed
-		trigger = { any_country = { has_country_flag = vote_for_new_host_succeeded } }
+		trigger = { any_country = { has_global_flag = vote_for_new_host_succeeded } }
 	}
 	desc = {
 		text = host_vote.2.d.fail
-		trigger = { any_country = { has_country_flag = vote_for_new_host_failed } }
+		trigger = { any_country = { has_global_flag = vote_for_new_host_failed } }
 	}
 
 	option = {
@@ -418,8 +410,13 @@ country_event = {
 				}
 				country_event = { id = host_vote.1 days = 3 }
 			}
+			else = {
+				if = {
+					limit = { has_event_target = game_host }
+					clear_global_event_target = game_host
+				}
+				event_target:current_highest_vote_holder = { save_global_event_target_as = game_host }
+			}
 		}
-		clear_global_event_target = game_host
-		event_target:current_highest_vote_holder = { save_global_event_target_as = game_host }
 	}
 }

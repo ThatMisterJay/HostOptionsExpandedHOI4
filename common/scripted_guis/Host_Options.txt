@@ -343,7 +343,7 @@ scripted_gui = {
 
 		dynamic_lists = {
 			ai_countries_list_gridbox = {
-				array = global.aibase
+				array = global.countrybase
 				entry_container = ai_countries_list_entry
 				change_scope = yes
 			}
