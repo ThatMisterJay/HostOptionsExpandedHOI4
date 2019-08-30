@@ -1,0 +1,5 @@
+This mod is a collection of tools aiming to improve hosting Multiplayer games.
+
+Mod includes but is not limited to switching countries without hotjoining (that includes the option for the HOST to switch country!), adding tension, disabling the Spanish Civil War, and changing Ideologies, all for the cheap price of not even a single Megabyte.
+
+Feel free to include this in any other mod; as long as you include credits.
