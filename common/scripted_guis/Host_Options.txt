@@ -44,9 +44,9 @@ scripted_gui = {
 				if = {
 					limit = {
 						has_global_flag = vote_on_host
-						NOT = { has_country_flag = country_has_voted }
+						ROOT = { NOT = { has_country_flag = country_has_voted } }
 					}
-					set_country_flag = country_has_voted
+					ROOT = { set_country_flag = country_has_voted }
 					add_to_variable = { global.votes_for_@THIS = 1 }
 				}
 				if = {

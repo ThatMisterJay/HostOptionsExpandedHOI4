@@ -15,6 +15,10 @@ add_player_countries = {
 				country_event = player_permission.2
 			}
 		}
+		else_if = {
+			limit = { is_ai = yes }
+			remove_from_array = { global.playerbase = THIS.id }
+		}
 	}
 	sort_array_by_factions = yes
 }

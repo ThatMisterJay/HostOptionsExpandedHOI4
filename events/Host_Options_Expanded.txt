@@ -29,6 +29,24 @@ country_event = {
 		}
 	}
 }
+country_event = {
+	id = logging_events.3
+
+	is_triggered_only = yes
+	hidden = yes
+
+	option = {
+		log = "Votes for THIS: [?global.votes_for_@THIS]"
+		log = "Array size: [?global.playerbase^num]"
+
+		set_variable = { global.current_highest_vote = 4 }
+
+		#set_temp_variable = { vote_total = global.playerbase^num }
+		set_temp_variable = { vote_total = 5 }
+		divide_variable = { global.current_highest_vote = vote_total }
+		log = "Percentage for host: [?global.current_highest_vote]"
+	}
+}
 
 #Sorting the array through event, only a helper
 country_event = {
@@ -257,10 +275,7 @@ country_event = {
 		}
 		if = {
 			limit = {
-				OR = {
-					TAG = event_target:country_to_switch
-					TAG = event_target:country_to_switch_to
-				}
+				TAG = event_target:country_to_switch
 				NOT = { has_global_flag = confirm_country_switch_player }
 			}
 			set_global_flag = confirm_country_switch_player
@@ -358,6 +373,7 @@ country_event = {
 	}
 }
 
+#THIS DOESNT WORK PROPERLY ATM
 #Results of host vote
 country_event = {
 	id = host_vote.2
@@ -372,24 +388,37 @@ country_event = {
 				if = {
 					limit = {
 						OR = {
-							NOT = { has_variable = current_highest_vote }
-							check_variable = { global.votes_for_@THIS > current_highest_vote }
+							NOT = { has_variable = global.current_highest_vote }
+							check_variable = { global.votes_for_@THIS > global.current_highest_vote }
 						}
 					}
-					set_temp_variable = { current_highest_vote = global.votes_for_@THIS }
+					set_variable = { global.current_highest_vote = global.votes_for_@THIS }
 					save_global_event_target_as = current_highest_vote_holder
+					log = "Votes for THIS: [?global.votes_for_@THIS]"
+					log = "Array size: [?global.playerbase^num]"
 				}
 			}
 
 			set_temp_variable = { vote_total = global.playerbase^num }
-			divide_variable = { current_highest_vote = vote_total }
+			divide_variable = { global.current_highest_vote = vote_total }
+			log = "Percentage for host: [?global.current_highest_vote]"
 			if = {
-				limit = { check_variable = { current_highest_vote > 0.8 } }
+				limit = { check_variable = { global.current_highest_vote > 0.8 } }
 
 				set_global_flag = vote_for_new_host_succeeded
+				if = {
+					limit = { has_event_target = game_host }
+					clear_global_event_target = game_host
+				}
+				event_target:current_highest_vote_holder = { save_global_event_target_as = game_host }
 			}
 			else = {
 				set_global_flag = vote_for_new_host_failed
+
+				if = {
+					limit = { NOT = { any_country = { TAG = event_target:game_host } } }
+					country_event = { id = host_vote.1 days = 3 }
+				}
 			}
 		}
 	}
@@ -405,21 +434,5 @@ country_event = {
 
 	option = {
 		name = host_vote.2.a
-		hidden_effect = {
-			if = {
-				limit = {
-					has_global_flag = vote_for_new_host_failed
-					NOT = { any_country = { TAG = event_target:game_host } }
-				}
-				country_event = { id = host_vote.1 days = 3 }
-			}
-			else = {
-				if = {
-					limit = { has_event_target = game_host }
-					clear_global_event_target = game_host
-				}
-				event_target:current_highest_vote_holder = { save_global_event_target_as = game_host }
-			}
-		}
 	}
 }
