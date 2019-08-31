@@ -1,6 +1,6 @@
 ﻿l_english:
     HOST_TOOLTIP:0 "§GOptions for Hosts§!"
- 
+
 
     #Events
     player_permission.1.t:0 "Permission asked from [selected_player.GetName]"
@@ -67,3 +67,10 @@
 
     # Ideas
     AI_no_faction_joining:0 "No Faction Joining for AI"
+
+    #Scripted Localisation
+    vote_on_host_active:0 "§GVote For Host Currently Active§!"
+    vote_on_host_inactive:0 "§GNo Vote For Host Currently§!"
+    vote_on_host_bug:0 "§RA Bug Has Happened§!"
+
+    has_voted_for_country_localisation:0 "[?local_country_has_voted_for.getName]"

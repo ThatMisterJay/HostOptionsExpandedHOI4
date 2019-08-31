@@ -46,7 +46,10 @@ scripted_gui = {
 						has_global_flag = vote_on_host
 						ROOT = { NOT = { has_country_flag = country_has_voted } }
 					}
-					ROOT = { set_country_flag = country_has_voted }
+					ROOT = {
+						set_country_flag = country_has_voted
+						set_variable = { local_country_has_voted_for = PREV }
+					}
 					add_to_variable = { global.votes_for_@THIS = 1 }
 				}
 				if = {
@@ -196,6 +199,7 @@ scripted_gui = {
 
 		triggers = {
 			country_options_title_secondary_visible = { ROOT = { TAG = event_target:game_host } }
+			current_vote_visible = { has_global_flag = vote_on_host }
 			country_options_title_visible = { ROOT = { TAG = event_target:game_host } }
 			general_options_title_visible = { ROOT = { TAG = event_target:game_host } }
 			general_option_1_visible = { ROOT = { TAG = event_target:game_host } }

@@ -373,7 +373,6 @@ country_event = {
 	}
 }
 
-#THIS DOESNT WORK PROPERLY ATM
 #Results of host vote
 country_event = {
 	id = host_vote.2
@@ -420,6 +419,10 @@ country_event = {
 					country_event = { id = host_vote.1 days = 3 }
 				}
 			}
+
+			clr_global_flag = vote_on_host
+			clr_country_flag = country_has_voted
+			clear_variable = local_country_has_voted_for
 		}
 	}
 
