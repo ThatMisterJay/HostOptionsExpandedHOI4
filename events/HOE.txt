@@ -195,7 +195,7 @@ country_event = {
 	immediate = {
 		set_temp_variable = { vote_total = vote_for }
 		log = "Votes for: [?vote_for]"
-		log = "Votes for: [?vote_against]"
+		log = "Votes against: [?vote_against]"
 		add_to_temp_variable = { vote_total = vote_against }
 		divide_variable = { vote_for = vote_total }
 		if = {
