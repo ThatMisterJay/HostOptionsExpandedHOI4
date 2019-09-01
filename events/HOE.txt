@@ -194,10 +194,16 @@ country_event = {
 
 	immediate = {
 		set_temp_variable = { vote_total = vote_for }
+		log = "Votes for: [?vote_for]"
+		log = "Votes for: [?vote_against]"
 		add_to_temp_variable = { vote_total = vote_against }
 		divide_variable = { vote_for = vote_total }
 		if = {
-			limit = { check_variable = { vote_for > 0.8 } }
+			limit = {
+				check_variable = { vote_for > 0.8 }
+				check_variable = { vote_for < 1.1 }
+			}
+			log = "Vote percentage: [?vote_for|%G0]"
 
 			event_target:country_being_asked_permission = {
 				set_country_flag = vote_succeeded
@@ -210,21 +216,22 @@ country_event = {
 				set_country_flag = permission_not_given_for_ideology_switch
 			}
 		}
-		clr_global_flag = permission_being_asked
-		clear_global_event_target = country_being_asked_permission
 	}
 
 	desc = {
 		text = player_permission.6.d.succeed
-		trigger = { any_country = { has_country_flag = vote_succeeded } }
+		trigger = { event_target:country_being_asked_permission = { has_country_flag = vote_succeeded } }
 	}
 	desc = {
 		text = player_permission.6.d.fail
-		trigger = { any_country = { has_country_flag = vote_failed } }
+		trigger = { event_target:country_being_asked_permission = { has_country_flag = vote_failed } }
 	}
 
 	option = {
 		name = player_permission.6.a
+
+		clr_global_flag = permission_being_asked
+		clear_global_event_target = country_being_asked_permission
 	}
 }
 
