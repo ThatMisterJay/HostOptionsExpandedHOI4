@@ -1,0 +1,7 @@
+This mod is a collection of tools aiming to improve hosting Multiplayer games. 
+
+Mod includes but is not limited to switching countries without hotjoining (that includes the option for the HOST to switch country!), adding tension, disabling the Spanish Civil War, and changing Ideologies, all for the cheap price of not even a single Megabyte.
+
+The host is chosen through a vote (this is the only way, as Paradox did not add a trigger for hosts). Paradox, if you're reading this: please add an is_host and an is_player trigger. It would make my life easier.
+
+Feel free to include this in any other mod; as long as you include credits.
