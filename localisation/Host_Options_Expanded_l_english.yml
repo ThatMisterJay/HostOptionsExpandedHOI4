@@ -50,12 +50,12 @@
     switching_countries.3.a:0 "Okay..."
 
     host_vote.1.t:0 "Vote on a New Host"
-    host_vote.1.d:0 "This is the beginning of the game and there is no current confirmed host, or the host has decided there needs to be a vote on a new host. It is now time to vote for a host. The vote will have to be over 80% on the same country."
+    host_vote.1.d:0 "This is the beginning of the game and there is no current confirmed host, or the host has decided there needs to be a vote on a new host. It is now time to vote for a host. The vote will have to be over 60% on the same country."
     host_vote.1.a:0 "I will vote in the menu on the lower right hand side!"
 
     host_vote.2.t:0 "Vote on a New Host: Results"
     host_vote.2.d.succeed:0 "The results are in: The new host has been chosen, and is [current_highest_vote_holder.GetNameDefCap]!"
-    host_vote.2.d.fail:0 "The results are in: No host has been chosen. In 3 days, a new vote will occur."
+    host_vote.2.d.fail:0 "The results are in: No host has been chosen. The number of votes for the highest voteholder ([current_highest_vote_holder.GetNameDefCap]) was [?global.highest_vote], and [?votes_needed|0] were needed. In 3 days, a new vote will occur."
     host_vote.2.a:0 "Here we go."
 
     #GUI tooltips

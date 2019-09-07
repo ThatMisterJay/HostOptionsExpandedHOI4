@@ -47,6 +47,26 @@ country_event = {
 		log = "Percentage for host: [?global.current_highest_vote]"
 	}
 }
+country_event = {
+	id = logging_events.4
+
+	is_triggered_only = yes
+	hidden = yes
+
+	option = {
+		add_player_countries = yes
+	}
+}
+country_event = {
+	id = logging_events.5
+
+	is_triggered_only = yes
+	hidden = yes
+
+	option = {
+	}
+}
+
 
 #Sorting the array through event, only a helper
 country_event = {
@@ -371,6 +391,9 @@ country_event = {
 
 		set_global_flag = vote_on_host
 		set_variable = { global.votes_for_@THIS = 0 }
+		clear_variable = global.highest_vote
+		clear_variable = total_votes_num
+		clear_variable = votes_needed
 
 		hidden_effect = { country_event = { id = host_vote.2 days = 10 } }
 	}
@@ -389,8 +412,11 @@ country_event = {
 
 	immediate = {
 		hidden_effect = {
+			set_variable = { total_votes_num = 0 }
+
 			every_country = {
 				limit = { is_ai = no }
+				add_to_variable = { total_votes_num = global.votes_for_@THIS }
 				if = {
 					limit = {
 						OR = {
@@ -405,11 +431,15 @@ country_event = {
 				}
 			}
 
-			set_temp_variable = { vote_total = global.playerbase^num }
+			set_temp_variable = { vote_total = total_votes_num }
+			set_variable = { global.highest_vote = global.current_highest_vote }
+			set_variable = { votes_needed = total_votes_num }
+			multiply_variable = { votes_needed = 0.6 }
 			divide_variable = { global.current_highest_vote = vote_total }
 			log = "Percentage for host: [?global.current_highest_vote]"
+			log = "Votes needed: [?votes_needed]"
 			if = {
-				limit = { check_variable = { global.current_highest_vote > 0.8 } }
+				limit = { check_variable = { global.current_highest_vote > 0.6 } }
 
 				set_global_flag = vote_for_new_host_succeeded
 				if = {
