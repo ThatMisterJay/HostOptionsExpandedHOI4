@@ -170,10 +170,19 @@ guiTypes = {
 
 			buttonType = {
 				name = "general_option_20"
-				position = { x = -320 y = -331 }#+180x
+				position = { x = -320 y = -294 }#+180x
 				spriteType = "GFX_HOE_button"
 				font = "hoi_16mbs"
 				text = "Refresh Teams"
+				orientation = LOWER_RIGHT
+			}
+
+			buttonType = {
+				name = "general_option_21"
+				position = { x = -320 y = -331 }#+180x
+				spriteType = "GFX_HOE_button"
+				font = "hoi_16mbs"
+				text = "Show Help"
 				orientation = LOWER_RIGHT
 			}
 

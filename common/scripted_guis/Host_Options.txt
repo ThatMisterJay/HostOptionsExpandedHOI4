@@ -84,6 +84,7 @@ scripted_gui = {
 				clr_global_flag = no_ai_faction_joining
 			}
 			general_option_20_click = { add_player_countries = yes }
+			general_option_21_click = { ROOT = { country_event = help_event.1 } }
 
 
 			option_1_click = {
